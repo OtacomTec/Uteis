@@ -1,0 +1,1561 @@
+// newobjectspack1.idl : IDL source for newobjectspack1.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (newobjectspack1.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "activscp.idl";
+[
+	uuid(21617666-A341-452C-AE16-268010923148),
+	version(1.0),
+	helpstring("newobjectspack1 1.0 Type Library")
+]
+library NEWOBJECTSPACK1Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		object,
+		uuid(D3137E6D-45F6-4d44-893A-37F16A38343A),
+		helpstring("IDollyTheSheep Interface"),
+		pointer_default(unique)
+	]
+	interface IDollyTheSheep : IUnknown
+	{
+		HRESULT	NewClone([out, retval] IUnknown* *ppClone);
+	};
+
+	[
+		object,
+		uuid(94A837CD-193F-11D5-999C-0040332BA2EA),
+		dual,
+		helpstring("IVarDictionary Interface"),
+		pointer_default(unique)
+	]
+	interface IVarDictionary : IDispatch
+	{
+		[propget, id(DISPID_NEWENUM), helpstring("Enumerator")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+		[propget, id(DISPID_VALUE), helpstring("returns the indexed item")] HRESULT Item([in,optional] VARIANT varIndex, [out, retval] VARIANT *pVal);
+		[id(1), helpstring("Adds item to the collection")] HRESULT Add([in] VARIANT varKey,[in] VARIANT varItem,[out,retval] VARIANT* pvarPlace);
+		[propget, id(2), helpstring("Items count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(3), helpstring("property Key")] HRESULT Key([in] VARIANT VarKey, [out, retval] VARIANT *pVal);
+		[id(4), helpstring("Clears the collection")] HRESULT Clear();
+		[id(5), helpstring("Removes an item")] HRESULT Remove([in] VARIANT varIndex, [out, retval] VARIANT* pvarResult);
+		[propget, id(6), helpstring("gets Root item")] HRESULT Root([out, retval] VARIANT *pVal);
+		[propput, id(6), helpstring("sets Root item")] HRESULT Root([in] VARIANT vVal);
+		[propget, id(7), helpstring("gets Missing item")] HRESULT Missing([out, retval] VARIANT *pVal);
+		[propput, id(7), helpstring("sets Missing item")] HRESULT Missing([in] VARIANT varVal);
+		[propput, id(DISPID_VALUE), helpstring("sets (if allowed) the indexed item")] HRESULT Item([in,optional] VARIANT varIndex, [in] VARIANT varVal);
+		[propget, id(8), helpstring("property Info")] HRESULT Info([out, retval] VARIANT *pVal);
+		[propput, id(8), helpstring("property Info")] HRESULT Info([in] VARIANT newVal);
+		[propget, id(9), helpstring("property firstItemAsRoot")] HRESULT firstItemAsRoot([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(9), helpstring("property firstItemAsRoot")] HRESULT firstItemAsRoot([in] VARIANT_BOOL newVal);
+		[id(10), helpstring("method Set")] HRESULT Set([in] VARIANT VarKey,[in] VARIANT VarItem,[out,retval] VARIANT* pvarPlace);
+		[propget, id(11), helpstring("property itemsAssignmentAllowed")] HRESULT itemsAssignmentAllowed([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(11), helpstring("property itemsAssignmentAllowed")] HRESULT itemsAssignmentAllowed([in] VARIANT_BOOL newVal);
+		[propget, id(12), helpstring("property classVersion")] HRESULT classVersion([out, retval] long *pVal);
+		[propget, id(13), helpstring("property enumItems")] HRESULT enumItems([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(13), helpstring("property enumItems")] HRESULT enumItems([in] VARIANT_BOOL newVal);
+		[propget, id(14), helpstring("property allowUnnamedValues")] HRESULT allowUnnamedValues([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(14), helpstring("property allowUnnamedValues")] HRESULT allowUnnamedValues([in] VARIANT_BOOL newVal);
+		[propget, id(15), helpstring("property allowDuplicateNames")] HRESULT allowDuplicateNames([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(15), helpstring("property allowDuplicateNames")] HRESULT allowDuplicateNames([in] VARIANT_BOOL newVal);
+		[id(16), helpstring("method Clone")] HRESULT Clone([out,retval] IDispatch** ppClone);
+		[id(17), helpstring("method CreateNew")] HRESULT CreateNew([out,retval] IDispatch** ppNew);
+		[id(18), helpstring("method FindByName")] HRESULT FindByName([in] BSTR bstrName,[in,defaultvalue(1)] long lFirst,[in,defaultvalue(1)] long lMax,[in,defaultvalue(-1)] long lDepth,[out,retval] IDispatch** ppResult);
+		[id(19), helpstring("method FindByValue")] HRESULT FindByValue([in] BSTR bstrName,[in] BSTR bstrVal,[in,defaultvalue(1)] long lFirst,[in,defaultvalue(1)] long lMax,[in,defaultvalue(-1)] long lDepth,[out,retval] IDispatch** ppResult);
+		[id(20), helpstring("method ClearEx")] HRESULT ClearEx([in,defaultvalue(0)] long lHow,[in,optional] VARIANT vParam);
+		[id(21), helpstring("method FindByInfo")] HRESULT FindByInfo([in] BSTR bstrName,[in,defaultvalue(1)] long lFirst,[in,defaultvalue(1)] long lMax,[in,defaultvalue(-1)] long lDepth,[out,retval] IDispatch** ppResult);
+		[propget, id(22), helpstring("property extractValues")] HRESULT extractValues([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(22), helpstring("property extractValues")] HRESULT extractValues([in] VARIANT_BOOL newVal);
+		[propget, id(23), helpstring("property readOnly")] HRESULT readOnly([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(23), helpstring("property readOnly")] HRESULT readOnly([in] VARIANT_BOOL newVal);
+		[propget, id(24), helpstring("property KeyExists")] HRESULT KeyExists([in] VARIANT vKey, [out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(94A837CF-193F-11D5-999C-0040332BA2EA),
+		dual,
+		helpstring("IUtilStringList Interface"),
+		pointer_default(unique)
+	]
+	interface IUtilStringList : IDispatch
+	{
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in,optional] VARIANT varIndex, [out, retval] VARIANT *pVal);
+		[propget, id(2), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(3), helpstring("method Add")] HRESULT Add([in] VARIANT varItem, [out, retval] VARIANT* pvarReturn);
+		[id(4), helpstring("method Remove")] HRESULT Remove([in] long lIndex);
+		[id(5), helpstring("method Clear")] HRESULT Clear();
+		[propget, id(6), helpstring("property Missing")] HRESULT Missing([out, retval] VARIANT *pVal);
+		[propput, id(6), helpstring("property Missing")] HRESULT Missing([in] VARIANT newVal);
+		[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+		[propget, id(7), helpstring("property classVersion")] HRESULT classVersion([out, retval] long *pVal);
+	};
+	[
+		object,
+		uuid(8C6679FA-355A-4B3E-9DE7-6BA896421C17),
+		dual,
+		helpstring("ICustomLock Interface"),
+		pointer_default(unique)
+	]
+	interface ICustomLock : IDispatch
+	{
+		[id(1), helpstring("method Lock")] HRESULT Lock();
+		[id(2), helpstring("method Unlock")] HRESULT Unlock();
+	};
+	[
+		object,
+		uuid(6CEAA770-C22C-11d4-9979-0040332BA2EA),
+		dual,
+		helpstring("IScpMan Interface"),
+		pointer_default(unique)
+	]
+	interface IScpMan : IDispatch
+	{
+		[propget, id(1), helpstring("returns simple version string")] HRESULT versionString([out, retval] BSTR *pVal);
+		[id(2), helpstring("Adds named item to the script namespaces")] HRESULT Add([in] VARIANT varKey,[in] VARIANT varItem,[out,retval] VARIANT* pvarPlace);
+		[propget, id(3), helpstring("returns count of the namespaces in the collection")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(DISPID_VALUE), helpstring("returns item from the namespaces collection")] HRESULT Item([in] VARIANT varIndex, [out, retval] VARIANT *pVal);
+		[propget, id(5), helpstring("returns key name")] HRESULT Key([in] VARIANT varKey, [out, retval] VARIANT *pVal);
+		[propget, id(DISPID_NEWENUM), helpstring("enumerator IEnumVariant for names of the items")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+		[id(7), helpstring("Clears the collection")] HRESULT Clear();
+		[id(8), helpstring("Removes an item")] HRESULT Remove([in] VARIANT varIndex, [out, retval] VARIANT* pvarResult);
+		[propget, id(9), helpstring("is the object locked i.e. can not accept namespaces and code")] HRESULT locked([out, retval] BOOL *pVal);
+		[id(10), helpstring("Loads script engine")] HRESULT LoadEngine([in] BSTR bstrEngine,[out,retval] VARIANT* pvarResult);
+		[id(11), helpstring("Adds code to the script")] HRESULT AddText([in] BSTR bstrText,[out,retval] VARIANT* pvarResult);
+		[id(12), helpstring("Starts the script")] HRESULT Run([out,retval] VARIANT* pvarResult);
+		[id(13), helpstring("Stops/disconnects the script")] HRESULT Stop();
+		[id(14), helpstring("Closes the script engine - component can be reused")] HRESULT Close();
+		[propget, id(15), helpstring("returns script global dispatch")] HRESULT script([out, retval] IDispatch* *pVal);
+		[propget, id(16), helpstring("returns error string for the last script error")] HRESULT lastError([out, retval] BSTR *pVal);
+		[id(17), helpstring("Adds event handling code")] HRESULT AddEventHandler([in] BSTR bstrItem,[in] BSTR bstrSubItem,[in] BSTR bstrEvent,[in] BSTR bstrCode,[out, retval] VARIANT* pvarResult);
+		[id(18), helpstring("Connects script for sinking events")] HRESULT Connect([out,retval] VARIANT* pvarResult);
+		[id(19), helpstring("Add named item to the script with extended options")] HRESULT AddEx([in] VARIANT varKey,[in] VARIANT varItem, [in,defaultvalue(0)] long lOptions, [out,retval] VARIANT* pvarPlace);
+		[id(20), helpstring("Checks if the member esists in the script")] HRESULT IsDefined([in] BSTR bstrName, [out,retval] VARIANT_BOOL* bResult);
+		[id(21), helpstring("method AddTextEx")] HRESULT AddTextEx([in] BSTR bstrText,[in, defaultvalue(0)] long lLineNumber ,[in, defaultvalue(0)] long lContext,[in,optional] VARIANT varItemCtx, [out,retval] VARIANT_BOOL* bResult);
+		[propget, id(22), helpstring("property lastErrorEx")] HRESULT lastErrorEx([out, retval] IDispatch* *pVal);
+		[id(23), helpstring("method Eval")] HRESULT Eval([in] BSTR bstrText, [in, optional] VARIANT vItemCtx, [out, retval] VARIANT* pVarResult);
+		[propget, id(24), helpstring("property Option")] HRESULT Option([in] VARIANT varIndex, [out, retval] long *pVal);
+		[id(25), helpstring("method Clone")] HRESULT Clone([out,retval] IDispatch** ppResult);
+		[propget, id(26), helpstring("property scriptObject")] HRESULT scriptObject([out, retval] IDispatch* *pVal);
+	};
+	[
+		object,
+		uuid(D9F2284B-ACA5-40F2-941D-8FF6E3C3A078),
+		dual,
+		helpstring("IConfigFile Interface"),
+		pointer_default(unique)
+	]
+	interface IConfigFile : IDispatch
+	{
+		[id(1), helpstring("method Read")] HRESULT Read([in] BSTR bstrFileName, [out,retval] IDispatch** ppDisp);
+		[id(2), helpstring("method Write")] HRESULT Write([in] BSTR bstrFileName, [in] IDispatch* pCol);
+		[id(3), helpstring("method CreateSection")] HRESULT CreateSection([out,retval] IDispatch** ppSect);
+		[id(4), helpstring("method CreateRecord")] HRESULT CreateRecord([out,retval] IDispatch** ppRecord);
+		[id(5), helpstring("method ReadFromRegistry")] HRESULT ReadFromRegistry([in] long lBranch,[in] BSTR bstrPath, [out,retval] IDispatch** ppDisp);
+		[id(6), helpstring("method WriteToRegistry")] HRESULT WriteToRegistry([in] long lBranch,[in] BSTR bstrPath, [in] IDispatch* pCol);
+		[id(7), helpstring("method ReadFromRegistry")] HRESULT ReadFromBinaryStream([in] IUnknown* pStrmObject, [out,retval] IDispatch** ppCol);
+		[id(8), helpstring("method WriteToRegistry")] HRESULT WriteToBinaryStream([in] IUnknown* pStrmObject, [in] IDispatch* pCol);
+		[propget, id(9), helpstring("property PreserveStringsWide")] HRESULT PreserveStringsWide([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(9), helpstring("property PreserveStringsWide")] HRESULT PreserveStringsWide([in] VARIANT_BOOL newVal);
+		[propget, id(10), helpstring("property PreserveUnsignedInt")] HRESULT PreserveUnsignedInt([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(10), helpstring("property PreserveUnsignedInt")] HRESULT PreserveUnsignedInt([in] VARIANT_BOOL newVal);
+		[propget, id(11), helpstring("property ErrorMode")] HRESULT ErrorMode([out, retval] long *pVal);
+		[propput, id(11), helpstring("property ErrorMode")] HRESULT ErrorMode([in] long newVal);
+		[propget, id(12), helpstring("property UseStreamTags")] HRESULT UseStreamTags([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(12), helpstring("property UseStreamTags")] HRESULT UseStreamTags([in] VARIANT_BOOL newVal);
+		[propget, id(13), helpstring("property RequireStreamTags")] HRESULT RequireStreamTags([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(13), helpstring("property RequireStreamTags")] HRESULT RequireStreamTags([in] VARIANT_BOOL newVal);
+
+		
+	};
+	[
+		object,
+		uuid(497FB5A1-1733-452E-B622-8130CF4F5A47),
+		dual,
+		helpstring("IInternalNodeInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IInternalNodeInfo : IDispatch
+	{
+		[propget, id(1), helpstring("property Type")] HRESULT Type([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(1), helpstring("property Type")] HRESULT Type([in] VARIANT_BOOL bVal);
+		[propget, id(2), helpstring("property TypeName")] HRESULT TypeName([out, retval] BSTR *pVal);
+		[propget, id(3), helpstring("property Class")] HRESULT Class([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Class")] HRESULT Class([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(BAA1BD2A-3077-11D3-959F-0040332BA2EA),
+		dual,
+		helpstring("IIniFile Interface"),
+		pointer_default(unique)
+	]
+	interface IIniFile : IDispatch
+	{
+		//Standard Server Side Component Methods
+		HRESULT OnStartPage([in] IUnknown* piUnk);
+		HRESULT OnEndPage();	
+		[propget, id(1), helpstring("property strFileName")] HRESULT strFileName([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property strFileName")] HRESULT strFileName([in] BSTR newVal);
+		[propget, id(2), helpstring("property strCurrentSection")] HRESULT strCurrentSection([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property strCurrentSection")] HRESULT strCurrentSection([in] BSTR newVal);
+		[id(3), helpstring("method GetString")] HRESULT GetString(BSTR bstrValueName, [out, retval] BSTR *pbstrValue);
+		[id(4), helpstring("method GetInt")] HRESULT GetInt(BSTR bstrValueName, [out, retval] long* plValue);
+		[id(5), helpstring("method SetString")] HRESULT SetString([in] BSTR bstrValueName, [in] BSTR pbstrValue);
+		[id(6), helpstring("method SetInt")] HRESULT SetInt([in] BSTR bstrValueName,[in] long lValue);
+		[propget, id(7), helpstring("property Integers")] HRESULT Integers([in] BSTR bstrValueName, [out, retval] long *pVal);
+		[propput, id(7), helpstring("property Integers")] HRESULT Integers([in] BSTR bstrValueName, [in] long newVal);
+		[propget, id(8), helpstring("property Strings")] HRESULT Strings([in] BSTR bstrValueName, [out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property Strings")] HRESULT Strings([in] BSTR bstrValueName, [in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(0270EFDB-9A68-4782-85A0-27529F6A29C9),
+	
+		helpstring("ISmartDisp Interface"),
+		pointer_default(unique)
+	]
+	interface ISmartDisp : IUnknown
+	{
+		[helpstring("method AddObject")] HRESULT AddObject([in] BSTR bstrName, [in] IDispatch* pObj, [in] VARIANT_BOOL bAllowedByDefault);
+		[helpstring("method AllowDenyMember")] HRESULT AllowDenyMember([in] BSTR bstrObject,[in] BSTR bstrMember, [in] VARIANT_BOOL bAllow);
+	};
+	[
+		object,
+		uuid(52F25E4D-1D6C-4BEE-B315-358A895CEF71),
+		dual,
+		helpstring("ISFStream Interface"),
+		pointer_default(unique)
+	]
+	interface ISFStream : IDispatch
+	{
+		[id(1), helpstring("method Read")] HRESULT ReadBin([in] long cb, [out,retval] VARIANT* pRead);
+		[id(2), helpstring("method WriteBin")] HRESULT WriteBin([in] VARIANT varBuff,[out,retval] long* plWritten);
+		[propget, id(3), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		[propput, id(3), helpstring("property Size")] HRESULT Size([in] long newVal);
+		[id(4), helpstring("method Seek")] HRESULT Seek([in] long lPos, [in] long lOrigin, [out,retval] long *plPos);
+		[propget, id(5), helpstring("property Pos")] HRESULT Pos([out, retval] long *pVal);
+		[propput, id(5), helpstring("property Pos")] HRESULT Pos([in] long newVal);
+		[id(6), helpstring("method Clone")] HRESULT Clone([out,retval] IUnknown** ppNew);
+		[id(7), helpstring("method CopyTo")] HRESULT CopyTo([in] IUnknown* pTarget,[in] long cb, [out,retval] long* pcbWritten);
+		[propget, id(8), helpstring("property textLineSeparator")] HRESULT textLineSeparator([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property textLineSeparator")] HRESULT textLineSeparator([in] BSTR newVal);
+		[propget, id(9), helpstring("property unicodeText")] HRESULT unicodeText([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(9), helpstring("property unicodeText")] HRESULT unicodeText([in] VARIANT_BOOL newVal);
+		[id(10), helpstring("method ReadText")] HRESULT ReadText([in,defaultvalue(-2)] long lChars, [out,retval] BSTR* pRead);
+		[propget, id(11), helpstring("property codePage")] HRESULT codePage([out, retval] long *pVal);
+		[propput, id(11), helpstring("property codePage")] HRESULT codePage([in] long newVal);
+		[id(12), helpstring("method WriteText")] HRESULT WriteText([in] BSTR bstrText,[in,defaultvalue(0)] long lOptions);
+		[propget, id(13), helpstring("property EOS")] HRESULT EOS([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(13), helpstring("property EOS")] HRESULT EOS([in] VARIANT_BOOL newVal);
+		[propget, id(14), helpstring("property maxTextBuff")] HRESULT maxTextBuff([out, retval] long *pVal);
+		[propput, id(14), helpstring("property maxTextBuff")] HRESULT maxTextBuff([in] long newVal);
+		[propget, id(15), helpstring("property stats")] HRESULT stats([out, retval] IDispatch* *pVal);
+		[propget, id(16), helpstring("property elementType")] HRESULT elementType([out, retval] long *pVal);
+		[id(17), helpstring("method Close")] HRESULT Close();
+		[id(18), helpstring("method SetStream")] HRESULT SetStream([in] IUnknown* pStrm);
+		[id(19), helpstring("method Find")] HRESULT Find([in] VARIANT vWhat,[in,defaultvalue(0)] long lFlags, [in,defaultvalue(1)] long lChunkSize, [out,retval] long* plPos);
+		[id(20), helpstring("method Commit")] HRESULT Commit([in,defaultvalue(0)] long lFlags);
+		[id(21), helpstring("method GetStream")] HRESULT GetStream([out,retval] IUnknown** pUnk);
+	};
+	[
+		object,
+		uuid(2A37F86D-7903-4379-A12D-B45C27345400),
+		helpstring("ISFStreamBin Interface"),
+		pointer_default(unique)
+	]
+	interface ISFStreamBin : IUnknown
+	{
+		HRESULT	BinGetStreamPtr(/*[out,retval]*/ IUnknown** ppStrm);
+	};
+	[
+		object,
+		uuid(E2F94D77-401E-4AC8-AC84-AFDAF408620B),
+		dual,
+		helpstring("IScpAggregate Interface"),
+		pointer_default(unique)
+	]
+	interface IScpAggregate : IDispatch
+	{		
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT varIndex, [out, retval] VARIANT *pVal);
+		[propget, id(1), helpstring("property versionString")] HRESULT versionString([out, retval] BSTR *pVal);
+		[id(2), helpstring("method AddEx")] HRESULT AddEx([in] VARIANT varKey,[in] VARIANT varItem, [in,defaultvalue(0)] long lOptions, [out,retval] VARIANT* pvarPlace);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(4), helpstring("property Key")] HRESULT Key([in] VARIANT varKey, [out, retval] VARIANT *pVal);
+		[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+		[id(6), helpstring("method Clear")] HRESULT Clear();
+		[id(7), helpstring("method Remove")] HRESULT Remove([in] VARIANT varIndex, [out, retval] VARIANT* pvarResult);
+		[id(8), helpstring("method AddEngine")] HRESULT AddEngine([in] BSTR bstrEngine,[out,retval] VARIANT* pvarResult);
+		[id(9), helpstring("method AddTextEx")] HRESULT AddTextEx([in] BSTR bstrLanguage,[in] BSTR bstrText,[in, defaultvalue(0)] long lLineNumber ,[in, defaultvalue(0)] long lContext,[in,optional] VARIANT varItemCtx, [out,retval] VARIANT_BOOL* bResult);
+		[id(10), helpstring("method Run")] HRESULT Run([in,defaultvalue(0)] long lOrder,[out,retval] VARIANT* pvarResult);
+		[id(11), helpstring("method Stop")] HRESULT Stop();
+		[id(12), helpstring("method Close")] HRESULT Close();
+		[propget, id(13), helpstring("property script")] HRESULT script([in, optional] VARIANT varLanguage, [out, retval] IDispatch* *pVal);
+		[propget, id(14), helpstring("property lastError")] HRESULT lastError([out, retval] BSTR *pVal);
+		[id(15), helpstring("method AddEventHandler")] HRESULT AddEventHandler([in] BSTR bstrItem,[in] BSTR bstrSubItem,[in] BSTR bstrEvent,[in] BSTR bstrCode,[in] BSTR bstrLanguage,[out, retval] VARIANT* pvarResult);
+		[id(16), helpstring("method Connect")] HRESULT Connect([out,retval] VARIANT* pvarResult);
+		[id(17), helpstring("method IsDefined")] HRESULT IsDefined([in] BSTR bstrName, [out,retval] VARIANT_BOOL* bResult);
+		[id(18), helpstring("method Add")] HRESULT Add([in] VARIANT vKey,[in] VARIANT vItem, [out,retval] VARIANT* pvarPlace);
+		[id(19), helpstring("method AddText")] HRESULT AddText([in] BSTR bstrLanguage,[in] BSTR bstrText, [out,retval] VARIANT* pvarResult);
+		[propget, id(20), helpstring("property Option")] HRESULT Option([in] VARIANT varIndex, [out, retval] long *pVal);
+		[propget, id(21), helpstring("property lastErrorEx")] HRESULT lastErrorEx([out, retval] IDispatch* *pVal);
+		[id(22), helpstring("method WhereIsDefined")] HRESULT WhereIsDefined([in] VARIANT varMember,[in,defaultvalue(0)] long  lType,[out,retval] VARIANT* pvarResult);
+		[propget, id(23), helpstring("property scriptObject")] HRESULT scriptObject([in] VARIANT varLanguage, [out, retval] IDispatch* *pVal);
+		[propget, id(24), helpstring("property errorHost")] HRESULT errorHost([out, retval] long *pVal);
+		[propput, id(24), helpstring("property errorHost")] HRESULT errorHost([in] long newVal);
+	};
+	[
+		object,
+		uuid(01E51CFE-656F-44F9-990F-3593B2DA09C8),
+		dual,
+		helpstring("ISFMain Interface"),
+		pointer_default(unique)
+	]
+	interface ISFMain : IDispatch
+	{
+		[id(1), helpstring("method CreateMemoryStream")] HRESULT CreateMemoryStream([out,retval] IDispatch** ppDisp);
+		[id(2), helpstring("method CreateStorageFile")] HRESULT CreateStorageFile([in] BSTR bstrFile,[in,defaultvalue(0x00000012)] long lMode,[out,retval] IDispatch** ppDisp);
+		[id(3), helpstring("method IsStorageFile")] HRESULT IsStorageFile([in] BSTR bstrFile,[out,retval] long* plResult);
+		[id(4), helpstring("method OpenStorageFile")] HRESULT OpenStorageFile([in] BSTR bstrFile,[in,defaultvalue(0x00000012)] long lMode,[out,retval] IDispatch** ppDisp);
+		[id(5), helpstring("method CreateDirectory")] HRESULT CreateDirectory([in] BSTR bstrDir, [in,defaultvalue(0x12)] long lFlags, [out,retval] IDispatch** ppDisp);
+		[id(6), helpstring("method OpenDirectory")] HRESULT OpenDirectory([in] BSTR bstrDir,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch** ppDisp);
+		[id(7), helpstring("method CreateFile")] HRESULT CreateFile([in] BSTR bstrFile,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch** ppDisp);
+		[id(8), helpstring("method OpenFile")] HRESULT OpenFile([in] BSTR bstrFile,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch** ppDisp);
+		[propget, id(9), helpstring("property Drives")] HRESULT Drives([out, retval] IDispatch ** ppVal);
+		[id(10), helpstring("method FileExists")] HRESULT FileExists([in] BSTR bstrFile,[out,retval] VARIANT_BOOL* pbResult);
+		[id(11), helpstring("method FolderExists")] HRESULT FolderExists([in] BSTR bstrFile,[out,retval] VARIANT_BOOL* pbResult);
+		[id(12), helpstring("method Exists")] HRESULT Exists([in] BSTR bstrPath,[out,retval] long* plResult);
+		[id(13), helpstring("method DeleteFile")] HRESULT DeleteFile([in] BSTR bstrFile,[in,defaultvalue(0)] VARIANT_BOOL bForce);
+		[id(14), helpstring("method DeleteFolder")] HRESULT DeleteFolder([in] BSTR bstrDir,[in,defaultvalue(0)] VARIANT_BOOL bForce);
+		[id(15), helpstring("method GetDrive")] HRESULT GetDrive([in] BSTR bstrDrive,[out,retval] IDispatch** ppDisp);
+		[id(16), helpstring("method GetDriveName")] HRESULT GetDriveName([in] BSTR bstrPath,[out,retval] BSTR* pbstrDrive);
+		[id(17), helpstring("method GetExtensionName")] HRESULT GetExtensionName([in] BSTR bstrPath,[out,retval] BSTR* pbstrExt);
+		[id(18), helpstring("method GetFileName")] HRESULT GetFileName([in] BSTR bstrPath,[out,retval] BSTR* pbstrName);
+		[id(19), helpstring("method GetInfo")] HRESULT GetInfo([in] BSTR bstrPath, [out,retval] IDispatch** pInfo);
+		[id(20), helpstring("method CreateStreamAnywhere")] HRESULT CreateStreamAnywhere([in] BSTR bstrPath,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch ** ppDisp);
+		[id(21), helpstring("method OpenStreamAnywhere")] HRESULT OpenStreamAnywhere([in] BSTR bstrPath,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch ** ppDisp);
+		[id(22), helpstring("method CopyFile")] HRESULT CopyFile([in] BSTR bstrSrc,[in] BSTR bstrDst,[in,defaultvalue(-1)] VARIANT_BOOL bReplace);
+		[id(23), helpstring("method GetSpecialPath")] HRESULT GetSpecialPath([in] long lDir, [out,retval] BSTR* pbstr);
+		[id(24), helpstring("method GetVersionInfo")] HRESULT GetVersionInfo([in] BSTR bstrFile,[out,retval] IDispatch** ppResult);
+		[id(25), helpstring("method RegSvr32")] HRESULT RegSvr32([in] BSTR bstrFile,[in,defaultvalue(1)] VARIANT_BOOL bReg);
+		[id(26), helpstring("method GetOSInfo")] HRESULT GetOSInfo([out,retval] IDispatch** ppResult);
+		[id(27), helpstring("method NewGUID")] HRESULT NewGUID([out,retval] BSTR* pbstrGUID);
+		[id(28), helpstring("method GetFilePath")] HRESULT GetFilePath([in] BSTR bstrIn, [out,retval] BSTR* bstrOut);
+		[propget, id(29), helpstring("property SysByteOrder")] HRESULT SysByteOrder([in, defaultvalue(0)] long lItem, [out, retval] VARIANT_BOOL *pVal);
+		[propget, id(30), helpstring("property SystemLanguageSupport")] HRESULT SystemLanguageSupport([in,defaultvalue(0)] long lWhat, [in,defaultvalue(1)] long lFlags,[out, retval] IDispatch* *pVal);
+	};
+	[
+		object,
+		uuid(A981B089-D316-48E1-8EC7-E3327CFFB32E),
+		dual,
+		helpstring("ISFStorage Interface"),
+		pointer_default(unique)
+	]
+	interface ISFStorage : IDispatch
+	{
+		[propget, id(1), helpstring("property classID")] HRESULT classID([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property classID")] HRESULT classID([in] BSTR newVal);
+		[id(2), helpstring("method Remove")] HRESULT Remove([in] BSTR bstrName);
+		[id(3), helpstring("method Rename")] HRESULT Rename([in] BSTR bstrOld,[in] BSTR bstrNew);
+		[propget, id(4), helpstring("property elementType")] HRESULT elementType([out, retval] long *pVal);
+		[propget, id(5), helpstring("property name")] HRESULT name([out, retval] BSTR *pVal);
+		[id(6), helpstring("method Commit")] HRESULT Commit([in,defaultvalue(0)] long lFlags);
+		[propget, id(7), helpstring("property Stats")] HRESULT Stats([out, retval] IDispatch* *pVal);
+		[id(8), helpstring("method CreateStream")] HRESULT CreateStream([in] BSTR bstrName,[in,defaultvalue(0x00000012)] long lMode,[out,retval] IDispatch** ppDisp);
+		[id(9), helpstring("method OpenStream")] HRESULT OpenStream([in] BSTR bstrName,[in,defaultvalue(0x00000012)] long lMode,[out,retval] IDispatch** ppDisp);
+		[id(10), helpstring("method CreateStorage")] HRESULT CreateStorage([in] BSTR bstrName,[in,defaultvalue(0x00001012)] long lMode,[out,retval] IDispatch** ppDisp);
+		[id(11), helpstring("method OpenStorage")] HRESULT OpenStorage([in] BSTR bstrName,[in,defaultvalue(0x00000012)] long lMode,[out,retval] IDispatch** ppDisp);
+		[id(12), helpstring("method Revert")] HRESULT Revert([out,retval] VARIANT_BOOL* bSuccess);
+		[propget, id(13), helpstring("property contents")] HRESULT contents([out, retval] IDispatch* *pVal);
+		[id(14), helpstring("method Close")] HRESULT Close();
+		[id(15), helpstring("method SetStorage")] HRESULT SetStorage([in] IUnknown* pUnk);
+		[id(16), helpstring("method CopyTo")] HRESULT CopyTo([in] IDispatch* pSFStrg,[out,retval] VARIANT_BOOL* pbResult);
+		[id(17), helpstring("method CopyElementTo")] HRESULT CopyElementTo([in] BSTR bstrOldName,[in] IDispatch* pSFStrg,[in] BSTR bstrName,[out,retval] VARIANT_BOOL* pbResult);
+		[id(18), helpstring("method MoveElementTo")] HRESULT MoveElementTo([in] BSTR bstrOldName,[in] IDispatch* pSFStrg,[in] BSTR bstrName,[out,retval] VARIANT_BOOL* pbResult);
+		[id(19), helpstring("method CreateSubStorage")] HRESULT CreateSubStorage([in] BSTR bstrPath,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch** ppDisp);
+		[id(20), helpstring("method CreateSubStream")] HRESULT CreateSubStream([in] BSTR bstrPath,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch** ppDisp);
+		[id(21), helpstring("method OpenSubStorage")] HRESULT OpenSubStorage([in] BSTR bstrPath,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch** ppDisp);
+		[id(22), helpstring("method OpenSubStream")] HRESULT OpenSubStream([in] BSTR bstrPath,[in,defaultvalue(0x12)] long lFlags,[out,retval] IDispatch** ppDisp);
+		[id(23), helpstring("method SubItemExists")] HRESULT SubItemExists([in] BSTR bstrPath,[out,retval] long* plResult);
+		[id(24), helpstring("method GetSubItemInfo")] HRESULT GetSubItemInfo([in] BSTR bstrPath,[out,retval] IDispatch** ppDisp);
+	};
+	[
+		object,
+		uuid(51D956D6-DC92-4c9d-835F-E7978F47FD22),
+		helpstring("ISFStorageBin Interface"),
+		pointer_default(unique)
+	]
+	interface ISFStorageBin : IUnknown
+	{
+		HRESULT	BinGetStoragePtr(/*[out,retval]*/ IUnknown** ppStrg);
+	};
+	[
+		object,
+		uuid(DA0F19DD-CEEE-4CD2-9467-A18362C6B5D5),
+		dual,
+		helpstring("ISFInfo Interface"),
+		pointer_default(unique)
+	]
+	interface ISFInfo : IDispatch
+	{
+		[propget, id(1), helpstring("property name")] HRESULT name([out, retval] BSTR *pVal);
+		[propget, id(2), helpstring("property Type")] HRESULT Type([out, retval] long *pVal);
+		[propget, id(3), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		[propget, id(4), helpstring("property Modified")] HRESULT Modified([out, retval] VARIANT *pVal);
+		[propget, id(5), helpstring("property Created")] HRESULT Created([out, retval] VARIANT *pVal);
+		[propget, id(6), helpstring("property Accessed")] HRESULT Accessed([out, retval] VARIANT *pVal);
+		[propget, id(7), helpstring("property Mode")] HRESULT Mode([out, retval] long *pVal);
+		[propget, id(8), helpstring("property valid")] HRESULT valid([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(D7823CE9-E589-4642-AFBA-ED39AD9C4A8E),
+		dual,
+		helpstring("ISFFileStream Interface"),
+		pointer_default(unique)
+	]
+	interface ISFFileStream : IDispatch
+	{
+		[id(1), helpstring("method OpenFile")] HRESULT OpenFile([in] BSTR bstrName,[in,defaultvalue(0x00000012)] long lFlags,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(2), helpstring("method CreateFile")] HRESULT CreateFile([in] BSTR bstrName,[in,defaultvalue(0x00000012)] long lFlags,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(3), helpstring("method Close")] HRESULT Close();
+	};
+	[
+		object,
+		uuid(3658C4AD-C7E2-4378-B77A-7687C813E623),
+		dual,
+		helpstring("ISFDirStorage Interface"),
+		pointer_default(unique)
+	]
+	interface ISFDirStorage : IDispatch
+	{
+		[id(1), helpstring("method CreateDirectory")] HRESULT CreateDirectory([in] BSTR bstrPath,[in,defaultvalue(0)] long lFlags,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(2), helpstring("method OpenDirectory")] HRESULT OpenDirectory([in] BSTR bstrPath,[in,defaultvalue(0)] long lFlags,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(3), helpstring("method Close")] HRESULT Close();
+		[propget, id(4), helpstring("property Path")] HRESULT Path([out, retval] BSTR *pVal);
+	};
+	[
+		object,
+		uuid(0B6D6D61-3F8C-477B-847A-2D667ACB6A18),
+	
+		helpstring("IEnumDirSTG Interface"),
+		pointer_default(unique)
+	]
+	interface IEnumDirSTG : IUnknown
+	{
+	};
+	[
+		object,
+		uuid(81278D2E-FF3B-4AE0-840B-91EB37710FC1),
+		dual,
+		helpstring("ISFDrive Interface"),
+		pointer_default(unique)
+	]
+	interface ISFDrive : IDispatch
+	{
+		[propget, id(1), helpstring("property DriveType")] HRESULT DriveType([out, retval] long *pVal);
+		[id(2), helpstring("method Open")] HRESULT Open([in,defaultvalue(0x00000012)] long lMode,[out,retval] ISFStorage** ppStg);
+		[propget, id(3), helpstring("property DriveLetter")] HRESULT DriveLetter([out, retval] BSTR *pVal);
+		[propget, id(4), helpstring("property FileSystem")] HRESULT FileSystem([out, retval] BSTR *pVal);
+		[propget, id(5), helpstring("property FreeSpace")] HRESULT FreeSpace([out, retval] VARIANT *pVal);
+		[propget, id(6), helpstring("property SerialNumber")] HRESULT SerialNumber([out, retval] BSTR *pVal);
+		[propget, id(7), helpstring("property TotalSize")] HRESULT TotalSize([out, retval] VARIANT *pVal);
+		[propget, id(8), helpstring("property VolumeName")] HRESULT VolumeName([out, retval] BSTR *pVal);
+	};
+	[
+		object,
+		uuid(B39867B5-243E-4D75-A371-24C15E6D5191),
+		dual,
+		helpstring("ISFField Interface"),
+		pointer_default(unique)
+	]
+	interface ISFField : IDispatch
+	{
+		[propget, id(0), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+		[propput, id(0), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(3), helpstring("property Type")] HRESULT Type([out, retval] long *pVal);
+		[propput, id(3), helpstring("property Type")] HRESULT Type([in] long newVal);
+		[id(4), helpstring("method Clear")] HRESULT Clear();
+		[propget, id(5), helpstring("property Exclude")] HRESULT Exclude([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(5), helpstring("property Exclude")] HRESULT Exclude([in] VARIANT_BOOL newVal);
+		[propget, id(6), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		[propput, id(6), helpstring("property Size")] HRESULT Size([in] long newVal);
+	};
+	[
+		object,
+		uuid(0736B831-0BD0-411E-8F13-94A0ED6FAA19),
+		dual,
+		helpstring("ISFRecord Interface"),
+		pointer_default(unique)
+	]
+	interface ISFRecord : IDispatch
+	{
+		[propget, id(0), helpstring("property Field")] HRESULT Field([in] VARIANT vIndex, [out, retval] IDispatch* *pVal);
+		[id(2), helpstring("method Add")] HRESULT Add([in] IDispatch* pField);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[id(4), helpstring("method Clear")] HRESULT Clear();
+		[id(5), helpstring("method AddField")] HRESULT AddField([in] BSTR bstrName,[in] long lType,[in,defaultvalue(0)] long lSize);
+		[id(6), helpstring("method Remove")] HRESULT Remove([in] VARIANT vIndex);
+		[propget, id(7), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+		[id(8), helpstring("method Replace")] HRESULT Replace([in] VARIANT vIndex,[in] IDispatch* pField);
+		[id(9), helpstring("method CreateSet")] HRESULT CreateSet([in] BSTR bstrDefs);
+		[id(10), helpstring("method BindTo")] HRESULT BindTo([in] IUnknown* pStrm,[in,defaultvalue(0)] IUnknown* pFilter);
+		[id(11), helpstring("method UnBind")] HRESULT UnBind();
+		[id(12), helpstring("method Move")] HRESULT Move([in] long lPos,[in] long lOrigin,[out,retval] VARIANT_BOOL* pbResult);
+		[id(13), helpstring("method MoveNext")] HRESULT MoveNext([out,retval] VARIANT_BOOL* pbResult);
+		[id(14), helpstring("method MovePrev")] HRESULT MovePrev([out,retval] VARIANT_BOOL* pbResult);
+		[id(15), helpstring("method MoveFirst")] HRESULT MoveFirst([out,retval] VARIANT_BOOL* pbResult);
+		[id(16), helpstring("method Read")] HRESULT Read([out,retval] VARIANT_BOOL* pbResult);
+		[id(17), helpstring("method Write")] HRESULT Write([out,retval] VARIANT_BOOL* pbResult);
+		[id(18), helpstring("method ReBind")] HRESULT ReBind();
+		[id(19), helpstring("method ReRead")] HRESULT ReRead([out,retval] VARIANT_BOOL* pbResult);
+		[id(20), helpstring("method Update")] HRESULT Update([out,retval] VARIANT_BOOL* pbResult);
+		[propget, id(21), helpstring("property Filter")] HRESULT Filter([out, retval] IDispatch* *pVal);
+		[propget, id(22), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(22), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[id(23), helpstring("method MoveLast")] HRESULT MoveLast([out,retval] VARIANT_BOOL* bSuccess);
+		[propget, id(24), helpstring("property RecordCount")] HRESULT RecordCount([out, retval] long *pVal);
+		[propput, id(24), helpstring("property RecordCount")] HRESULT RecordCount([in] long newVal);
+	};
+	[
+		object,
+		uuid(B27216F3-FCD5-4c20-9440-EC24320ECD65),
+		helpstring("ISFFilterService Interface"),
+		pointer_default(unique)
+	]
+	interface ISFFilterService : IUnknown
+	{
+		HRESULT GetBufferSize([out, retval] long *pVal);
+		HRESULT SetBufferSize([in] long newVal);
+		HRESULT CalcBufferSize([in] IUnknown* pRecord,[out,retval] long* lResult);
+		HRESULT ResetBuffer();
+		HRESULT GetBufferPos([out, retval] long *pVal);
+		HRESULT SetBufferPos([in] long newVal);
+		HRESULT PutData([in] IUnknown* pObj);
+		HRESULT GetData([in] IUnknown* pObj);
+		HRESULT PutVariant([in] VARIANT v,[in] long lType,[in] long lSize);
+		HRESULT GetVariant([in] long lType,[in] long lSize,[out,retval] VARIANT* pVar);
+		HRESULT ReadBuffer([in] IUnknown* pStrm,[out,retval] VARIANT_BOOL* pbSuccess);
+		HRESULT WriteBuffer([in] IUnknown* pStrm,[out,retval] VARIANT_BOOL* pbResult);
+		HRESULT SeekStream([in] IUnknown* pStrm,[in] long lRec,[in] long lFrom,[out,retval] VARIANT_BOOL* pbResult);
+		HRESULT GetStreamBegin([out, retval] long *pVal);
+		HRESULT SetStreamBegin([in] long newVal);
+		HRESULT GetRecordCount([in] IUnknown* pStrm,[out,retval] long* plSize);
+		HRESULT SetRecordCount([in] IUnknown* pStrm,[in] long lSize);
+	};
+	[
+		object,
+		uuid(BAE83505-1275-4545-A36F-753D5A28445F),
+		dual,
+		helpstring("ISFFilter Interface"),
+		pointer_default(unique)
+	]
+	interface ISFFilter : IDispatch
+	{
+		[propget, id(2), helpstring("property buffSize")] HRESULT buffSize([out, retval] long *pVal);
+		[propput, id(2), helpstring("property buffSize")] HRESULT buffSize([in] long newVal);
+		[id(3), helpstring("method CalcBuffer")] HRESULT CalcBuffer([in] IUnknown* pRecord,[out,retval] long* lResult);
+		[propget, id(4), helpstring("property Buffer")] HRESULT Buffer([out, retval] VARIANT *pVal);
+		[id(5), helpstring("method Reset")] HRESULT Reset();
+		[propget, id(6), helpstring("property bufferPos")] HRESULT bufferPos([out, retval] long *pVal);
+		[propput, id(6), helpstring("property bufferPos")] HRESULT bufferPos([in] long newVal);
+		[id(7), helpstring("method Put")] HRESULT Put([in] IUnknown* pField);
+		[id(8), helpstring("method Get")] HRESULT Get([in] IUnknown* pField);
+		[propget, id(9), helpstring("property codePage")] HRESULT codePage([out, retval] long *pVal);
+		[propput, id(9), helpstring("property codePage")] HRESULT codePage([in] long newVal);
+		[propget, id(10), helpstring("property unicodeText")] HRESULT unicodeText([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(10), helpstring("property unicodeText")] HRESULT unicodeText([in] VARIANT_BOOL newVal);
+		[id(11), helpstring("method PutVar")] HRESULT PutVar([in] VARIANT v,[in,defaultvalue(9)] long lType,[in,defaultvalue(0)] long lSize);
+		[id(12), helpstring("method GetVar")] HRESULT GetVar([in] long lType,[in,defaultvalue(0)] long lSize,[out,retval] VARIANT* pVar);
+		[id(13), helpstring("method Read")] HRESULT Read([in] IUnknown* pStrm,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(14), helpstring("method Write")] HRESULT Write([in] IUnknown* pStrm,[out,retval] VARIANT_BOOL* pbResult);
+		[id(15), helpstring("method Seek")] HRESULT Seek([in] IUnknown* pStrm,[in] long lRec,[in] long lFrom,[out,retval] VARIANT_BOOL* pbResult);
+		[propget, id(16), helpstring("property StreamBegin")] HRESULT StreamBegin([out, retval] long *pVal);
+		[propput, id(16), helpstring("property StreamBegin")] HRESULT StreamBegin([in] long newVal);
+		[id(17), helpstring("method GetSize")] HRESULT GetSize([in] IUnknown* pStrm,[out,retval] long* plSize);
+		[id(18), helpstring("method SetSize")] HRESULT SetSize([in] IUnknown* pStrm,[in] long lSize);
+		[propget, id(19), helpstring("property ByteOrder")] HRESULT ByteOrder([out, retval] long *pVal);
+		[propput, id(19), helpstring("property ByteOrder")] HRESULT ByteOrder([in] long newVal);
+		[propget, id(20), helpstring("property UnicodeByteOrder")] HRESULT UnicodeByteOrder([out, retval] long *pVal);
+		[propput, id(20), helpstring("property UnicodeByteOrder")] HRESULT UnicodeByteOrder([in] long newVal);
+	};
+	[
+		object,
+		uuid(3A2FC9EF-5299-4F18-BB4C-43909FE0DB3E),
+		dual,
+		helpstring("ITypeConvertor Interface"),
+		pointer_default(unique)
+	]
+	interface ITypeConvertor : IDispatch
+	{
+		[id(1), helpstring("method Conv")] HRESULT Conv([in] long lType, [in] VARIANT vIn,[out,retval] VARIANT* vOut);
+		[id(2), helpstring("method CBool")] HRESULT CBool([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(3), helpstring("method CByte")] HRESULT CByte([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(4), helpstring("method CCur")] HRESULT CCur([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(5), helpstring("method CDate")] HRESULT CDate([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(6), helpstring("method CDbl")] HRESULT CDbl([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(7), helpstring("method CInt")] HRESULT CInt([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(8), helpstring("method Clng")] HRESULT CLng([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(9), helpstring("method CSng")] HRESULT CSng([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(10), helpstring("method CStr")] HRESULT CStr([in] VARIANT vIn,[out,retval] VARIANT* pvOut);
+		[id(11), helpstring("method BitOr")] HRESULT BitOr([in] long lX,[in] long lY,[out,retval] long* plResult);
+		[id(12), helpstring("method BitAnd")] HRESULT BitAnd([in] long lX,[in] long lY,[out,retval] long* plResult);
+		[id(13), helpstring("method BitXor")] HRESULT BitXor([in] long lX,[in] long lY,[out,retval] long* plResult);
+		[id(14), helpstring("method BitNeg")] HRESULT BitNeg([in] long lX,[out,retval] long* plResult);
+		[id(15), helpstring("method BitLeft")] HRESULT BitLeft([in] long lX,[in] long lPos,[out,retval] long* plResult);
+		[id(16), helpstring("method BitRight")] HRESULT BitRight([in] long lX,[in] long lPos,[out,retval] long* plResult);
+		[id(17), helpstring("method VariantType")] HRESULT VariantType([in] VARIANT v, [out,retval] long* plvt);
+	};
+	[
+		object,
+		uuid(A501EB4F-84E1-4665-B035-0104C83F1544),
+		dual,
+		helpstring("IVaryDisp Interface"),
+		pointer_default(unique)
+	]
+	interface IVaryDisp : IDispatch
+	{
+		[propget, id(0), helpstring("property theObject")] HRESULT theObject([out, retval] IDispatch* *pVal);
+		[id(1), helpstring("method AddObject")] HRESULT AddObject([in] BSTR bstrName,[in] IUnknown* pObject, [in,defaultvalue(0)] short sFlags,[out,retval] long* plID);
+		[propget, id(2), helpstring("property ObjectCount")] HRESULT ObjectCount([out, retval] long *pVal);
+		[id(3), helpstring("method RemoveObject")] HRESULT RemoveObject([in] VARIANT vObject);
+		[propget, id(4), helpstring("property objects")] HRESULT objects([in] VARIANT vObject, [out, retval] IDispatch* *pVal);
+		[id(5), helpstring("method AddMember")] HRESULT AddMember([in] BSTR bstrName,[in] VARIANT vObject, [in] VARIANT vInnerNameOrID,[in,defaultvalue(7)] short sFlags,[in,defaultvalue(-1)] long lReqID,[out,retval] long* plID);
+		[id(6), helpstring("method RemoveMember")] HRESULT RemoveMember([in] VARIANT vMember);
+		[propget, id(7), helpstring("property MemberCount")] HRESULT MemberCount([out, retval] long *pVal);
+		[propget, id(8), helpstring("property ObjectID")] HRESULT ObjectID([in] VARIANT vNI, [out, retval] long *pVal);
+		[id(9), helpstring("method Clear")] HRESULT Clear();
+		[propget, id(10), helpstring("property ContextName")] HRESULT ContextName([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property ContextName")] HRESULT ContextName([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(A3A48D6E-ABF1-49E2-B2B2-297CF652F66E),
+		helpstring("IVaryDispImp Interface"),
+		pointer_default(unique)
+	]
+	interface IVaryDispImp : IUnknown
+	{
+		[helpstring("method ObjectCount")] HRESULT ObjectCount([out,retval] long* plObjects);
+		[helpstring("method MemberCount")] HRESULT MemberCount([out,retval] long* plMembers);
+		[helpstring("method AddObject")] HRESULT AddObject([in] BSTR bstrName,[in] IUnknown* pObject, [in,defaultvalue(0)] short sFlags,[out,retval] long* plID);
+		[helpstring("method RemoveObject")] HRESULT RemoveObject([in] VARIANT vObject);
+		[helpstring("method FindObject")] HRESULT FindObject([in] VARIANT vObject,[out,retval] IUnknown** ppObject);
+		[helpstring("method AddMember")] HRESULT AddMember([in] BSTR bstrName,[in] VARIANT vObject, [in] VARIANT vInnerNameOrID, [in] short sFlags,[in] long lReqID,[out,retval] long* lID);
+		[helpstring("method RemoveMember")] HRESULT RemoveMember([in] VARIANT vMember);
+		[helpstring("method GetObjectID")] HRESULT GetObjectID([in] VARIANT vObjectIndexOrName,[out,retval] long* plID);
+		[helpstring("method Clear")] HRESULT Clear();
+		[helpstring("method GetContextName")] HRESULT GetContextName([out,retval] BSTR* pbstrName);
+		[helpstring("method SetContextName")] HRESULT SetContextName([in] BSTR bstrName);
+		[helpstring("method CreateObject")] HRESULT CreateObject([in] BSTR bstrName, [in] BSTR bstrID,[in] short sFlags,[out,retval] IDispatch** ppObject);
+	};
+	[
+		object,
+		uuid(2426B610-9E63-475F-9436-4FB3FA334872),
+		dual,
+		helpstring("IVaryDispCtx Interface"),
+		pointer_default(unique)
+	]
+	interface IVaryDispCtx : IDispatch
+	{
+		[propget, id(0), helpstring("property Item")] HRESULT Item([in] VARIANT vObject, [out, retval] IDispatch* *pVal);
+		[propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(2), helpstring("property Id")] HRESULT Id([in] VARIANT vIndexOrName, [out, retval] long *pVal);
+		[id(3), helpstring("method DetachContext"), hidden] HRESULT DetachContext();
+		[id(4), helpstring("method CreateObject")] HRESULT CreateObject([in] VARIANT vID,[in,defaultvalue(0)] long lFlags,[out,retval] IDispatch** ppObj);
+	};
+	[
+		object,
+		uuid(A37C3CD4-6689-4469-AEF8-4A60E87E2E5B),
+		dual,
+		helpstring("IVaryDispCreator Interface"),
+		pointer_default(unique)
+	]
+	interface IVaryDispCreator : IDispatch
+	{
+		[id(1), helpstring("method CreateObject")] HRESULT CreateObject([in] VARIANT vDef,[in,defaultvalue(0)] VARIANT_BOOL bCtl,[in,defaultvalue(0)] long lDefType,[out,retval] IDispatch** ppDispObject);
+		[id(2), helpstring("method RegisterClass")] HRESULT RegisterClass([in] VARIANT vDef, [in,defaultvalue(0)] VARIANT_BOOL bCtl,[in,defaultvalue(0)] long lDefType);
+		[id(3), helpstring("method UnRegisterClass")] HRESULT UnRegisterClass([in] VARIANT vDef,[in,defaultvalue(0)] VARIANT_BOOL bCtl,[in,defaultvalue(0)] long lDefType);
+	};
+	[
+		object,
+		uuid(6A2C5924-FB63-40AC-A0B4-44DE916543DB),
+		dual,
+		helpstring("ISFShellLink Interface"),
+		pointer_default(unique)
+	]
+	interface ISFShellLink : IDispatch
+	{
+		[propget, id(1), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(2), helpstring("property InternetShortcut")] HRESULT InternetShortcut([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(2), helpstring("property InternetShortcut")] HRESULT InternetShortcut([in] VARIANT_BOOL newVal);
+		[propget, id(3), helpstring("property Path")] HRESULT Path([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Path")] HRESULT Path([in] BSTR newVal);
+		[propget, id(4), helpstring("property Target")] HRESULT Target([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property Target")] HRESULT Target([in] BSTR newVal);
+		[propget, id(5), helpstring("property Arguments")] HRESULT Arguments([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property Arguments")] HRESULT Arguments([in] BSTR newVal);
+		[propget, id(6), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(7), helpstring("property HotKey")] HRESULT HotKey([out, retval] long *pVal);
+		[propput, id(7), helpstring("property HotKey")] HRESULT HotKey([in] long newVal);
+		[propget, id(8), helpstring("property IconPath")] HRESULT IconPath([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property IconPath")] HRESULT IconPath([in] BSTR newVal);
+		[propget, id(9), helpstring("property IconIndex")] HRESULT IconIndex([out, retval] long *pVal);
+		[propput, id(9), helpstring("property IconIndex")] HRESULT IconIndex([in] long newVal);
+		[propget, id(10), helpstring("property ShowCmd")] HRESULT ShowCmd([out, retval] long *pVal);
+		[propput, id(10), helpstring("property ShowCmd")] HRESULT ShowCmd([in] long newVal);
+		[propget, id(11), helpstring("property WorkingDirectory")] HRESULT WorkingDirectory([out, retval] BSTR *pVal);
+		[propput, id(11), helpstring("property WorkingDirectory")] HRESULT WorkingDirectory([in] BSTR newVal);
+		[id(12), helpstring("method Open")] HRESULT Open([out,retval] VARIANT_BOOL* pbSuccess);
+		[id(13), helpstring("method Save")] HRESULT Save([out,retval] VARIANT_BOOL* pbSuccess);
+		[id(14), helpstring("method ReadFromStream")] HRESULT ReadFromStream([in] IUnknown* pStrm);
+		[id(15), helpstring("method WriteToStream")] HRESULT WriteToStream([in] IUnknown* pStrm);
+		[id(16), helpstring("method Clear")] HRESULT Clear();
+		[id(17), helpstring("method Delete")] HRESULT Delete([out,retval] VARIANT_BOOL* pbSuccess);
+		[id(18), helpstring("method Resolve")] HRESULT Resolve([in,defaultvalue(1)] long lFlags, [in,defaultvalue(0)] long lTimeOut,[out,retval] VARIANT_BOOL* pbSuccess);
+		[propget, id(19), helpstring("property FileName")] HRESULT FileName([out, retval] BSTR *pVal);
+		[propput, id(19), helpstring("property FileName")] HRESULT FileName([in] BSTR newVal);
+	};
+	[
+		object,
+		uuid(FE9619E3-3632-44CB-80DC-2A39832B6B27),
+		dual,
+		helpstring("IPack1Creator Interface"),
+		pointer_default(unique)
+	]
+	interface IPack1Creator : IDispatch
+	{
+		[id(1), helpstring("method CreateObject")] HRESULT CreateObject([in] VARIANT vID,[in,defaultvalue(0)] long lFlags,[out,retval] IDispatch** ppObj);
+		[id(2), helpstring("method CreateObjectFromDLL")] HRESULT CreateObjectFromDLL([in] BSTR bstrDLL,[in] BSTR bstrID,[out,retval] IUnknown** ppObj);
+	};
+	[
+		object,
+		uuid(C6437303-8D62-4C9C-864A-68795BCE215B),
+		dual,
+		helpstring("ICOMApartment Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMApartment : IDispatch
+	{
+		[propget, id(1), helpstring("property Creator")] HRESULT Creator([out, retval] IDispatch* *pVal);
+		[id(2), helpstring("method Destroy")] HRESULT Destroy();
+		[propget, id(3), helpstring("property IsAlive")] HRESULT IsAlive([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(4), helpstring("property MultiThreaded")] HRESULT MultiThreaded([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(5), helpstring("property Priority")] HRESULT Priority([out, retval] long *pVal);
+		[propput, id(5), helpstring("property Priority")] HRESULT Priority([in] long newVal);
+	};
+	[
+		object,
+		uuid(BC67B77E-7587-45D6-AF35-32040494ED36),
+		dual,
+		helpstring("ICOMThread Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMThread : IDispatch
+	{
+		[id(1), helpstring("method Activate")] HRESULT Activate();
+		[id(2), helpstring("method Deactivate")] HRESULT Deactivate();
+		[propget, id(3), helpstring("property Active")] HRESULT Active([out, retval] VARIANT_BOOL *pVal);
+		[id(4), helpstring("method Terminate")] HRESULT Terminate();
+		[id(5), helpstring("method Execute")] HRESULT Execute([in] IDispatch* pObj,[in] VARIANT vMethod);
+		[id(6), helpstring("method Wait")] HRESULT Wait([in] long lTimeout,[out,retval] VARIANT_BOOL* pbResult);
+		[propget, id(7), helpstring("property Busy")] HRESULT Busy([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(8), helpstring("property Success")] HRESULT Success([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(9), helpstring("property Result")] HRESULT Result([out, retval] VARIANT *pVal);
+		[propget, id(10), helpstring("property MultiThreaded")] HRESULT MultiThreaded([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(10), helpstring("property MultiThreaded")] HRESULT MultiThreaded([in] VARIANT_BOOL newVal);
+		[propget, id(11), helpstring("property Timeout")] HRESULT Timeout([out, retval] long *pVal);
+		[propput, id(11), helpstring("property Timeout")] HRESULT Timeout([in] long newVal);
+		[propget, id(12), helpstring("property Priority")] HRESULT Priority([out, retval] long *pVal);
+		[propput, id(12), helpstring("property Priority")] HRESULT Priority([in] long newVal);
+	};
+	[
+		object,
+		uuid(C929C470-7ACF-47A2-A6AC-D44DE8094588),
+		dual,
+		helpstring("ISFBinaryData Interface"),
+		pointer_default(unique)
+	]
+	interface ISFBinaryData : IDispatch
+	{
+		[propget, id(0), helpstring("property Byte")] HRESULT Byte([in] long lIndex, [out, retval] BYTE *pVal);
+		[propput, id(0), helpstring("property Byte")] HRESULT Byte([in] long lIndex, [in] BYTE newVal);
+		[propget, id(1), helpstring("property Size")] HRESULT Size([out, retval] long *pVal);
+		[propput, id(1), helpstring("property Size")] HRESULT Size([in] long newVal);
+		[propget, id(2), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+		[propput, id(2), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+		[id(3), helpstring("method Clear")] HRESULT Clear();
+		[id(4), helpstring("method Empty")] HRESULT Empty();
+		[propget, id(5), helpstring("property Bit")] HRESULT Bit([in] long lIndex, [in] long lBit, [in,defaultvalue(1)] short hBytes, [out, retval] VARIANT_BOOL *pVal);
+		[propput, id(5), helpstring("property Bit")] HRESULT Bit([in] long lIndex, [in] long lBit, [in,defaultvalue(1)] short hBytes, [in] VARIANT_BOOL newVal);
+		[propget, id(6), helpstring("property Unit")] HRESULT Unit([in] long lIndex, [in] long lType, [out, retval] VARIANT *pVal);
+		[propput, id(6), helpstring("property Unit")] HRESULT Unit([in] long lIndex, [in] long lType, [in] VARIANT newVal);
+		[propget, id(7), helpstring("property String")] HRESULT String([in] long lIndex, [in,defaultvalue(-1)] long lLength, [in,defaultvalue(0)] long lCP, [out,retval] BSTR* bstrRead);
+		[propput, id(7), helpstring("property String")] HRESULT String([in] long lIndex, [in,defaultvalue(-1)] long lLength, [in,defaultvalue(0)] long lCP, [in] BSTR bstrWrite);
+		[propget, id(8), helpstring("property UnicodeString")] HRESULT UnicodeString([in] long lIndex, [in,defaultvalue(-1)] long lLength, [out,retval] BSTR* bstrRead);
+		[propput, id(8), helpstring("property UnicodeString")] HRESULT UnicodeString([in] long lIndex, [in,defaultvalue(-1)] long lLength, [in] BSTR bstrWrite);
+		[propget, id(9), helpstring("property ByteOrder")] HRESULT ByteOrder([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ByteOrder")] HRESULT ByteOrder([in] long newVal);
+		[propget, id(10), helpstring("property UnicodeByteOrder")] HRESULT UnicodeByteOrder([out, retval] long *pVal);
+		[propput, id(10), helpstring("property UnicodeByteOrder")] HRESULT UnicodeByteOrder([in] long newVal);
+		[propget, id(11), helpstring("property Data")] HRESULT Data([in,defaultvalue(0)] long lBegin,[in,defaultvalue(0)] long lEnd, [out, retval] VARIANT *pVal);
+		[propput, id(11), helpstring("property Data")] HRESULT Data([in,defaultvalue(0)] long lBegin,[in,defaultvalue(0)] long lEnd, [in] VARIANT newVal);
+		[id(12), helpstring("method Slice")] HRESULT Slice([in] long lIndex,[in,defaultvalue(-1)] long lEnd,[out,retval] IDispatch** ppObj);
+	};
+	[
+		object,
+		uuid(F7B0A6D5-36C2-4CF6-8EEB-B335241D0414),
+		dual,
+		helpstring("ICOMScriptThread Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMScriptThread : IDispatch
+	{
+		[propget, id(0), helpstring("property Value")] HRESULT Value([out, retval] IDispatch* *pVal);
+		[propget, id(1), helpstring("property Busy")] HRESULT Busy([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(2), helpstring("property Timeout")] HRESULT Timeout([out, retval] long *pVal);
+		[propput, id(2), helpstring("property Timeout")] HRESULT Timeout([in] long newVal);
+		[propget, id(3), helpstring("property MultiThreaded")] HRESULT MultiThreaded([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(3), helpstring("property MultiThreaded")] HRESULT MultiThreaded([in] VARIANT_BOOL newVal);
+		[propget, id(4), helpstring("property Priority")] HRESULT Priority([out, retval] long *pVal);
+		[propput, id(4), helpstring("property Priority")] HRESULT Priority([in] long newVal);
+		[propget, id(5), helpstring("property Success")] HRESULT Success([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(6), helpstring("property LastError")] HRESULT LastError([out, retval] BSTR *pVal);
+		[id(7), helpstring("method Start")] HRESULT Start([in] BSTR bstrLang, [in] BSTR bstrScript, [in,defaultvalue(0)] long lWait, [out,retval] VARIANT_BOOL* pbSuccess);
+		[id(8), helpstring("method Execute")] HRESULT Execute([in] BSTR bstrMember, [in, defaultvalue(0)] long lWait, [out,retval] VARIANT_BOOL* pbSuccess);
+		[id(9), helpstring("method Stop")] HRESULT Stop();
+		[id(10), helpstring("method Wait")] HRESULT Wait([in] long lWait,[out,retval] VARIANT_BOOL* pbSuccess);
+		[propget, id(11), helpstring("property Result")] HRESULT Result([out, retval] VARIANT *pVal);
+		[propget, id(12), helpstring("property AddCreator")] HRESULT AddCreator([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(12), helpstring("property AddCreator")] HRESULT AddCreator([in] VARIANT_BOOL newVal);
+		[propget, id(13), helpstring("property Active")] HRESULT Active([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(4CA160A4-40F6-46C1-8964-8AB6E9E2A224),
+		dual,
+		helpstring("ICOMSleeper Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMSleeper : IDispatch
+	{
+		[id(1), helpstring("method Sleep")] HRESULT Sleep([in] long lMS);
+	};
+	
+	// Classes
+
+	// VarDicitonary
+	// ~~~~~~~~~~~~~
+	[
+		uuid(94A837CE-193F-11D5-999C-0040332BA2EA),
+		helpstring("newObjects VarDictionary Class")
+	]
+	coclass VarDictionary
+	{
+		[default] interface IVarDictionary;
+	};
+	[
+		uuid(E5178F02-D68A-4e85-8583-1E329A6B010F),
+		helpstring("newObjects VarDictionary Class (freethreaded)")
+	]
+	coclass VarDictionaryFree
+	{
+		[default] interface IVarDictionary;
+	};
+
+	// UtilStringList
+	// ~~~~~~~~~~~~~~
+	[
+		uuid(94A837D0-193F-11D5-999C-0040332BA2EA),
+		helpstring("newObjects StringList Class")
+	]
+	coclass UtilStringList
+	{
+		[default] interface IUtilStringList;
+	};
+	[
+		uuid(C93086FD-276F-4a9d-9962-1FD81768BB4A),
+		helpstring("newObjects StringList Class (freethreaded)")
+	]
+	coclass UtilStringListFree
+	{
+		[default] interface IUtilStringList;
+	};
+
+	// CustomLock
+	// ~~~~~~~~~~
+	[
+		uuid(EFC453AE-071E-40DF-A679-A8867C3C6088),
+		helpstring("newObjects CustomLock utility Class")
+	]
+	coclass CustomLock
+	{
+		[default] interface ICustomLock;
+	};
+
+	// ScpMan
+	// ~~~~~~
+	[
+		uuid(6CEAA772-C22C-11d4-9979-0040332BA2EA),
+		helpstring("newObjects ScpMan2 Class")
+	]
+	coclass ScpMan
+	{
+		[default] interface IScpMan;
+		//[restricted] interface IActiveScriptSite;
+	};
+	[
+		uuid(75A6E42B-C882-42d4-A0B8-10D26C31F2F9),
+		helpstring("newObjects ScpMan2 Class (freethreaded)")
+	]
+	coclass ScpManFree
+	{
+		[default] interface IScpMan;
+		//[restricted] interface IActiveScriptSite;
+	};
+
+	// ConfigFile
+	// ~~~~~~~~~~
+	[
+		uuid(262DE78D-982E-4B0F-8230-D99D079EA7FA),
+		helpstring("newObjects ConfigFile Class")
+	]
+	coclass ConfigFile
+	{
+		[default] interface IConfigFile;
+	};
+	[
+		uuid(FCF4F139-90E0-47a9-8DC0-62B1B216CC41),
+		helpstring("newObjects ConfigFile Class (freethreaded)")
+	]
+	coclass ConfigFileFree
+	{
+		[default] interface IConfigFile;
+	};
+
+	// InternalNodeInfo
+	// ~~~~~~~~~~~~~~~~
+	[
+		uuid(F55DE2CA-2A0E-4A07-B14E-63A58544BFB6),
+		noncreatable,
+		helpstring("InternalNodeInfo Class")
+	]
+	coclass InternalNodeInfo
+	{
+		[default] interface IInternalNodeInfo;
+	};
+
+	// IniFile
+	// ~~~~~~~
+	[
+		uuid(BAA1BD2B-3077-11D3-959F-0040332BA2EA),
+		helpstring("IniFile Class")
+	]
+	coclass IniFile
+	{
+		[default] interface IIniFile;
+	};
+	[
+		uuid(9B3E0D33-87D8-4849-90AC-4EFF0FAD9686),
+		helpstring("IniFile Class (freethreaded)")
+	]
+	coclass IniFileFree
+	{
+		[default] interface IIniFile;
+	};
+
+	// SFStream
+	// ~~~~~~~~
+	[
+		uuid(81D1E083-2C7F-4EFA-A45F-58A93B513A33),
+		helpstring("SFStream Class")
+	]
+	coclass SFStream
+	{
+		[default] interface ISFStream;
+	};
+	[
+		uuid(F38BC51D-B506-4f89-AF62-7C6989EF1F9C),
+		helpstring("SFStream Class (freethreaded)")
+	]
+	coclass SFStreamFree
+	{
+		[default] interface ISFStream;
+	};
+
+	/////////////////////
+	[
+		uuid(0BC0AB5D-075E-40F0-BBCE-029B8F64DEEA),
+		noncreatable,
+		helpstring("SmartDisp Class")
+	]
+	coclass SmartDisp
+	{
+		[default] interface ISmartDisp;
+	};
+
+	// ScpAggregate
+	// ~~~~~~~~~~~~
+	[
+		uuid(2E98DDC5-3BFD-4794-8F7B-2DADF42659BD),
+		helpstring("ScpAggregate Class")
+	]
+	coclass ScpAggregate
+	{
+		[default] interface IScpAggregate;
+	};
+	[
+		uuid(D027D108-D277-49c3-89EA-E93ABB934EE6),
+		helpstring("ScpAggregate Class (freethreaded)")
+	]
+	coclass ScpAggregateFree
+	{
+		[default] interface IScpAggregate;
+	};
+
+	// SFMain
+	[
+		uuid(F86AC6C2-5578-4AE8-808A-DC5DAA78082A),
+		helpstring("SFMain Class")
+	]
+	coclass SFMain
+	{
+		[default] interface ISFMain;
+	};
+	[
+		uuid(63B21C3D-6BA1-4565-9B34-E1C66E0449FD),
+		helpstring("SFMain Class (freethreaded)")
+	]
+	coclass SFMainFree
+	{
+		[default] interface ISFMain;
+	};
+
+	// SFStorage
+	// ~~~~~~~~~
+	[
+		uuid(59B71984-3121-402E-A110-0B54BDC3EF32),
+		helpstring("SFStorage Class")
+	]
+	coclass SFStorage
+	{
+		[default] interface ISFStorage;
+	};
+	[
+		uuid(B05EB05E-0794-4976-83F4-9C0CC52E38DC),
+		helpstring("SFStorage Class (freethreaded)")
+	]
+	coclass SFStorageFree
+	{
+		[default] interface ISFStorage;
+	};
+
+	// SFInfo
+	// ~~~~~~
+	[
+		uuid(AD8B523D-8E3E-4D56-A3A7-A2F309AAA718),
+		noncreatable,
+		helpstring("SFInfo Class")
+	]
+	coclass SFInfo
+	{
+		[default] interface ISFInfo;
+	};
+
+	// SFFileStream
+	// ~~~~~~~~~~~~
+	[
+		uuid(1C89ABD6-F168-46A2-A562-A192DB1BC24D),
+		helpstring("SFFileStream Class")
+	]
+	coclass SFFileStream
+	{
+		[default] interface ISFFileStream;
+	};
+	[
+		uuid(4A4ADEA6-8124-405e-AA83-767E439FBCFC),
+		helpstring("SFFileStream Class (freethreaded)")
+	]
+	coclass SFFileStreamFree
+	{
+		[default] interface ISFFileStream;
+	};
+
+	// SFDirStorage
+	// ~~~~~~~~~~~~
+	[
+		uuid(8C5ED567-C721-4B29-8C06-3262AEDFE233),
+		helpstring("SFDirStorage Class")
+	]
+	coclass SFDirStorage
+	{
+		[default] interface ISFDirStorage;
+	};
+	[
+		uuid(0914783B-3C32-4a9f-BF7A-0D230575C30F),
+		helpstring("SFDirStorage Class (freethreaded)")
+	]
+	coclass SFDirStorageFree
+	{
+		[default] interface ISFDirStorage;
+	};
+
+	// EnumDirSTG
+	[
+		uuid(68B99EDF-2805-4C39-84AA-5C825112D54B),
+		noncreatable,
+		helpstring("EnumDirSTG Class")
+	]
+	coclass EnumDirSTG
+	{
+		[default] interface IEnumDirSTG;
+	};
+
+
+
+	// SFDrive
+	// ~~~~~~~
+	[
+		uuid(BE7887BA-10AA-47B5-BBEC-31617CCA5FB1),
+		helpstring("SFDrive Class")
+	]
+	coclass SFDrive
+	{
+		[default] interface ISFDrive;
+	};
+	[
+		uuid(6F280CFD-482F-46ea-B7BC-C43AF59E595C),
+		helpstring("SFDrive Class (freethreaded)")
+	]
+	coclass SFDriveFree
+	{
+		[default] interface ISFDrive;
+	};
+
+
+	// SFField
+	// ~~~~~~~
+	[
+		uuid(5F88FA0B-BEC0-41B9-82A1-B67B4F187AE5),
+		helpstring("SFField Class")
+	]
+	coclass SFField
+	{
+		[default] interface ISFField;
+	};
+	[
+		uuid(F9A5F293-335F-421b-8C6D-97DDAE5A32E2),
+		helpstring("SFField Class (freethreaded)")
+	]
+	coclass SFFieldFree
+	{
+		[default] interface ISFField;
+	};
+
+
+	// SFRecord
+	// ~~~~~~~~
+	[
+		uuid(52CA1847-DDB9-49BB-96F4-099C6BC3B7E8),
+		helpstring("SFRecord Class")
+	]
+	coclass SFRecord
+	{
+		[default] interface ISFRecord;
+	};
+	[
+		uuid(02355E5B-2EE9-42d5-81F2-8CF7B7496F2B),
+		helpstring("SFRecord Class (freethreaded)")
+	]
+	coclass SFRecordFree
+	{
+		[default] interface ISFRecord;
+	};
+
+	// SFFilter
+	// ~~~~~~~~
+	[
+		uuid(4A467FBB-711D-423A-947B-85FADC8B0913),
+		helpstring("SFFilter Class")
+	]
+	coclass SFFilter
+	{
+		[default] interface ISFFilter;
+				  interface ISFFilterService;
+	};
+	[
+		uuid(1380FA60-C871-481e-8D17-1C7B665BEC4C),
+		helpstring("SFFilter Class (freethreaded)")
+	]
+	coclass SFFilterFree
+	{
+		[default] interface ISFFilter;
+				  interface ISFFilterService;
+	};
+
+	// TypeConvertor
+	// ~~~~~~~~~~~~~
+	[
+		uuid(2D9B783F-8DB3-4E5E-83F7-7367AB690346),
+		helpstring("TypeConvertor Class")
+	]
+	coclass TypeConvertor
+	{
+		[default] interface ITypeConvertor;
+	};
+	[
+		uuid(DBB52E7B-FCFC-4d85-9936-E7C4CF6B661A),
+		helpstring("TypeConvertor Class (freethreaded)")
+	]
+	coclass TypeConvertorFree
+	{
+		[default] interface ITypeConvertor;
+	};
+
+	// VaryDisp
+	// ~~~~~~~~
+	[
+		uuid(0EBC57D2-59B0-4407-B42E-B886FA17DEFC),
+		helpstring("VaryDisp Class")
+	]
+	coclass VaryDisp
+	{
+		[default] interface IVaryDisp;
+	};
+	[
+		uuid(AE85B219-EBC0-4e29-A766-17C6F7A12408),
+		helpstring("VaryDisp Class (both)")
+	]
+	coclass VaryDispBoth
+	{
+		[default] interface IVaryDisp;
+	};
+	[
+		uuid(035B1257-A684-455b-B99A-6CA95B05227E),
+		helpstring("VaryDisp Class (freethreaded)")
+	]
+	coclass VaryDispFree
+	{
+		[default] interface IVaryDisp;
+	};
+
+	// VaryDispCreator
+	[
+		uuid(835294A3-F1D0-4DFB-9C02-464178AE7416),
+		helpstring("VaryDispCreator Class")
+	]
+	coclass VaryDispCreator
+	{
+		[default] interface IVaryDispCreator;
+	};
+	[
+		uuid(8BA4A092-4D55-485b-9CFF-880A9BD2196D),
+		helpstring("VaryDispCreator Class (both)")
+	]
+	coclass VaryDispCreatorBoth
+	{
+		[default] interface IVaryDispCreator;
+	};
+	[
+		uuid(76C654E9-3F98-413c-A059-8AD4634CA093),
+		helpstring("VaryDispCreator Class (freethreaded)")
+	]
+	coclass VaryDispCreatorFree
+	{
+		[default] interface IVaryDispCreator;
+	};
+	
+
+	// VaryDispImp (noncreatable)
+	[
+		uuid(A51BA517-E3FD-48FB-9C3B-0BAB0287AAE3),
+		helpstring("VaryDispImp Class")
+	]
+	coclass VaryDispImp
+	{
+		[default] interface IVaryDispImp;
+	};
+
+	// VaryDispCtx (noncreatable)
+	[
+		uuid(4FC7E43D-87DE-4586-BE72-E8554E8EF1E9),
+		helpstring("VaryDispCtx Class")
+	]
+	coclass VaryDispCtx
+	{
+		[default] interface IVaryDispCtx;
+	};
+
+	// Not used right now
+	[
+		uuid(8A0C2162-24D5-40A3-B63D-F55D53043ED5),
+		helpstring("ScpHostBufDispatch Class")
+	]
+	coclass ScpHostBufDispatch
+	{
+		[default] interface IDispatch;
+	};
+
+	// ShellLink
+	// ~~~~~~~~~
+	[
+		uuid(70BD6BA6-C316-4CD5-9E95-A5BEA443ABAC),
+		helpstring("newObjects SFShellLink Class")
+	]
+	coclass SFShellLink
+	{
+		[default] interface ISFShellLink;
+	};
+	[
+		uuid(48A58699-D5E5-4f7f-8F97-43378500D406),
+		helpstring("newObjects SFShellLink Class (freethreaded)")
+	]
+	coclass SFShellLinkFree
+	{
+		[default] interface ISFShellLink;
+	};
+
+	// Pack1Creator
+	// ~~~~~~~~~~~~
+	[
+		uuid(06C9B1B5-13E5-4661-AE98-DFAB98C67AF1),
+		helpstring("newObjects Pack1Creator Class")
+	]
+	coclass Pack1Creator
+	{
+		[default] interface IPack1Creator;
+	};
+	[
+		uuid(4BCA503D-9296-4def-9032-95C3FAD7C4FC),
+		helpstring("newObjects Pack1Creator Class (freethreaded)")
+	]
+	coclass Pack1CreatorFree
+	{
+		[default] interface IPack1Creator;
+	};
+
+
+	// COMApartment
+	// ~~~~~~~~~~~~
+	[
+		uuid(242D4FF6-766A-4208-BC0B-105F5D1176C0),
+		helpstring("COMApartment Class")
+	]
+	coclass COMApartment
+	{
+		[default] interface ICOMApartment;
+	};
+	[
+		uuid(ACCD8A90-36F8-4b27-8276-E68F28783B56),
+		helpstring("COMApartment Class (freethreaded)")
+	]
+	coclass COMApartmentFree
+	{
+		[default] interface ICOMApartment;
+	};
+
+	// COMThread
+	// ~~~~~~~~~
+	[
+		uuid(A06EC65E-9BD8-48C0-820E-37DA93395B42),
+		helpstring("_ICOMThreadEvents Interface")
+	]
+	dispinterface _ICOMThreadEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		object,
+		uuid(3A61C066-F6CF-4739-96F4-6D9177D925AF),
+		dual,
+		helpstring("ISynchEvent Interface"),
+		pointer_default(unique)
+	]
+	interface ISynchEvent : IDispatch
+	{
+		[id(1), helpstring("method Create")] HRESULT Create([in,defaultvalue(0)] VARIANT_BOOL bManualReset,[in,defaultvalue(0)] VARIANT_BOOL bInitState,[in,defaultvalue("")] BSTR bstrName);
+		[id(2), helpstring("method Reset")] HRESULT Reset();
+		[id(3), helpstring("method Pulse")] HRESULT Pulse();
+		[id(4), helpstring("method Set")] HRESULT Set();
+		[id(5), helpstring("method Wait")] HRESULT Wait([in,defaultvalue(-1)] long lTimeout,[out,retval] VARIANT_BOOL* pbResult);
+		[propget, id(6), helpstring("property IsSet")] HRESULT IsSet([out, retval] VARIANT_BOOL *pVal);
+		[id(7), helpstring("method CheckAndReset")] HRESULT CheckAndReset([out,retval] VARIANT_BOOL* pbResult);
+		[propget, id(8), helpstring("property Valid")] HRESULT Valid([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(3B05CCBE-209B-44DF-AFFD-C813D20C0A66),
+		dual,
+		helpstring("ISynchMutex Interface"),
+		pointer_default(unique)
+	]
+	interface ISynchMutex : IDispatch
+	{
+		[id(1), helpstring("method Create")] HRESULT Create([in,defaultvalue(0)] VARIANT_BOOL bOwned,[in,defaultvalue("")] BSTR bstrName);
+		[id(2), helpstring("method ReleaseMutex")] HRESULT ReleaseMutex();
+		[id(3), helpstring("method Wait")] HRESULT Wait([in,defaultvalue(-1)] long lTimeout,[out,retval] VARIANT_BOOL *pbResult);
+		[propget, id(4), helpstring("property IsOwned")] HRESULT IsOwned([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(5), helpstring("property Valid")] HRESULT Valid([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(5757A2A1-2257-4B22-B616-71142C548CDF),
+		dual,
+		helpstring("ISynchSemaphore Interface"),
+		pointer_default(unique)
+	]
+	interface ISynchSemaphore : IDispatch
+	{
+		[id(1), helpstring("method Create")] HRESULT Create([in,defaultvalue(1)] long lMax,[in,defaultvalue(1)] long lInitial,[in,defaultvalue("")] BSTR bstrName);
+		[id(2), helpstring("method ReleaseSemaphore")] HRESULT ReleaseSemaphore([in,defaultvalue(1)] long lInc,[out,retval] long* pResult);
+		[id(3), helpstring("method Wait")] HRESULT Wait([in,defaultvalue(-1)] long lTimeout,[out,retval] VARIANT_BOOL* pbResult);
+		[propget, id(4), helpstring("property IsActive")] HRESULT IsActive([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(B05E7911-FEC1-4981-8616-FEE2BF61DACB),
+		dual,
+		helpstring("IStringUtilities Interface"),
+		pointer_default(unique)
+	]
+	interface IStringUtilities : IDispatch
+	{
+		[id(1), helpstring("method Sprintf"), vararg] HRESULT Sprintf([in] BSTR bstrFormat,[in] SAFEARRAY(VARIANT) vargs,[out,retval] BSTR* pbstrResult);
+		[propget, id(2), helpstring("property Decimal")] HRESULT Decimal([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Decimal")] HRESULT Decimal([in] BSTR newVal);
+		[propget, id(3), helpstring("property DateFormat")] HRESULT DateFormat([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property DateFormat")] HRESULT DateFormat([in] BSTR newVal);
+		[propget, id(4), helpstring("property TimeFormat")] HRESULT TimeFormat([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property TimeFormat")] HRESULT TimeFormat([in] BSTR newVal);
+		[propget, id(5), helpstring("property DateTimeFormat")] HRESULT DateTimeFormat([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property DateTimeFormat")] HRESULT DateTimeFormat([in] BSTR newVal);
+		[propget, id(6), helpstring("property AM")] HRESULT AM([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property AM")] HRESULT AM([in] BSTR newVal);
+		[propget, id(7), helpstring("property PM")] HRESULT PM([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property PM")] HRESULT PM([in] BSTR newVal);
+		[id(8), helpstring("method SAprintf")] HRESULT SAprintf([in] BSTR bstrFormat,[in] VARIANT v,[out,retval] BSTR* pbstrResult);
+		[propget, id(9), helpstring("property NullName")] HRESULT NullName([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property NullName")] HRESULT NullName([in] BSTR newVal);
+		[propget, id(10), helpstring("property NaNName")] HRESULT NaNName([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property NaNName")] HRESULT NaNName([in] BSTR newVal);
+		[id(11), helpstring("method SCprintf")] HRESULT SCprintf([in] BSTR bstrFormat,[in] IUnknown* pColl,[out,retval] BSTR* pbstr);
+		[propget, id(13), helpstring("property AutoFormatTypes")] HRESULT AutoFormatTypes([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property AutoFormatTypes")] HRESULT AutoFormatTypes([in] BSTR newVal);
+		[propget, id(14), helpstring("property WeekDays")] HRESULT WeekDays([in] long lIndex, [out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property WeekDays")] HRESULT WeekDays([in] long lIndex, [in] BSTR newVal);
+		[propget, id(15), helpstring("property Months")] HRESULT Months([in] long lIndex, [out, retval] BSTR *pVal);
+		[propput, id(15), helpstring("property Months")] HRESULT Months([in] long lIndex, [in] BSTR newVal);
+		[id(16), helpstring("method HexToBin")] HRESULT HexToBin([in] BSTR bstr,[out,retval] VARIANT* pVar);
+		[id(17), helpstring("method BinToHex")] HRESULT BinToHex([in] VARIANT vData,[out,retval] BSTR* bstr);
+	};
+	
+		
+	[
+		uuid(238DF0CC-1982-4D2A-9773-22795F358304),
+		helpstring("newObjects COMThread Class")
+	]
+	coclass COMThread
+	{
+		[default] interface ICOMThread;
+		[default, source] dispinterface _ICOMThreadEvents;
+	};
+	[
+		uuid(D3ED7B31-2BFD-4a8f-95B7-7EB170C51198),
+		helpstring("newObjects COMThread Class (freethreaded)")
+	]
+	coclass COMThreadFree
+	{
+		[default] interface ICOMThread;
+		[default, source] dispinterface _ICOMThreadEvents;
+	};
+
+	[
+		uuid(6FD08154-39CA-47AE-9299-6E37D7A894DB),
+		helpstring("newObjects SFBinaryData Class")
+	]
+	coclass SFBinaryData
+	{
+		[default] interface ISFBinaryData;
+	};
+	[
+		uuid(6A123D64-D17D-4ba3-9215-DEF0E037B87A),
+		helpstring("newObjects SFBinaryData Class (freethreaded)")
+	]
+	coclass SFBinaryDataFree
+	{
+		[default] interface ISFBinaryData;
+	};
+	[
+		uuid(8D79C106-4807-4E49-9515-FA7DB84C7BC7),
+		helpstring("newObjects COMScriptThread Class")
+	]
+	coclass COMScriptThread
+	{
+		[default] interface ICOMScriptThread;
+	};
+	[
+		uuid(9673018A-99E2-4c2a-8F60-C57F9786BEF6),
+		helpstring("newObjects COMScriptThread Class (freethreaded)")
+	]
+	coclass COMScriptThreadFree
+	{
+		[default] interface ICOMScriptThread;
+	};
+	[
+		uuid(8C086E2F-6CA1-40B2-9A4F-536F321E4A90),
+		helpstring("newObjects COMSleeper Class")
+	]
+	coclass COMSleeper
+	{
+		[default] interface ICOMSleeper;
+	};
+	[
+		uuid(ECC09A75-FB45-4705-8E14-56F5EA5525A5),
+		helpstring("newObjects Event Class")
+	]
+	coclass SynchEvent
+	{
+		[default] interface ISynchEvent;
+	};
+	[
+		uuid(179541F1-D961-4C9B-80E2-58E234A6E389),
+		helpstring("newObjects Mutex Class")
+	]
+	coclass SynchMutex
+	{
+		[default] interface ISynchMutex;
+	};
+	[
+		uuid(385F4698-5A17-4FC9-83E6-AEEABE9AF675),
+		helpstring("newObjects Semaphore Class")
+	]
+	coclass SynchSemaphore
+	{
+		[default] interface ISynchSemaphore;
+	};
+	[
+		uuid(B43BED8B-B48C-410B-BEB7-7FAF22ACE9FC),
+		helpstring("newObjects StringUtilities Class")
+	]
+	coclass StringUtilities
+	{
+		[default] interface IStringUtilities;
+	};
+	[
+		uuid(CF542753-0204-4709-B459-2B67BD54CDFB),
+		helpstring("newObjects StringUtilities Class (freethreaded)")
+	]
+	coclass StringUtilitiesFree
+	{
+		[default] interface IStringUtilities;
+	};
+};

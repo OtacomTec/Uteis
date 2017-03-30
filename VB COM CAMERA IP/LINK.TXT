@@ -1,0 +1,4 @@
+http://www.networkipcamera.com/index.php?inc=faq_028
+http://answers.opencv.org/question/133/how-do-i-access-an-ip-camera/
+http://stackoverflow.com/questions/712998/opencv-with-network-cameras
+http://stackoverflow.com/questions/15934961/connect-to-ip-camera-using-emgu-cvs-capture-new-capture

@@ -1,0 +1,40 @@
+C:\Prosoft Arquivos Disk Med\SINTEGRA Disk Med 102011.txt;Contribuinte: 04216957000120 DISK MED PADUA DISTRIBUIDORA DE MED;01/10/2011 a 31/10/2011
+0000000001      117050                                  212153                         Registro informado em duplicidade.                                                                  Rejeição   
+0000000002      143150                     CFOP         212352                     6202Para CFOPs iniciados por 6, UF deve ser diferente da UF do informante.                              Advertência
+0000000003      176650                     CFOP         212584                     6108Para CFOPs iniciados por 6, UF deve ser diferente da UF do informante.                              Advertência
+0000000004      251250                                  213151                         Registro informado em duplicidade.                                                                  Rejeição   
+0000000005      251350                                  213151                         Registro informado em duplicidade.                                                                  Rejeição   
+0000000006      251550                                  213152                         Registro informado em duplicidade.                                                                  Rejeição   
+0000000007      293450                     CFOP         000322                     1411Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000008      293650                     CFOP         000323                     1411Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000009      294450                     CFOP         000644                     1411Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000010      295150                     CFOP         001309                     1102Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000011      299750                     CFOP         010433                     1303Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000012      307850                     CFOP         064699                     1303Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000013      317550                     CFOP         211300                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000014      317650                     CFOP         211300                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000015      317750                     CFOP         211301                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000016      317850                     CFOP         211301                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000017      318050                     CFOP         211503                     2202Para CFOPs iniciados por 2, UF deve ser diferente da UF do informante.                              Advertência
+0000000018      318150                     CFOP         212253                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000019      318350                     CFOP         212574                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000020      318450                     CFOP         212892                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000021      318550                     CFOP         212894                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000022      318650                     CFOP         212895                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000023      318750                     CFOP         212896                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000024      318850                     CFOP         212897                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000025      318950                     CFOP         212897                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000026      319050                     CFOP         212898                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000027      319150                     CFOP         212898                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000028      319250                     CFOP         212899                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000029      319350                     CFOP         212899                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000030      319450                     CFOP         212901                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000031      319550                     CFOP         212902                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000032      319650                     CFOP         212903                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000033      319750                     CFOP         213379                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000034      319850                     CFOP         213380                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000035      319950                     CFOP         213385                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000036      320050                     CFOP         213386                     1202Para CFOPs iniciados por 1, UF deve ser igual a do informante.                                      Advertência
+0000000037      324250                                  479032                         Registro informado em duplicidade.                                                                  Rejeição   
+0000000038     2859175        Código do produto 00000000094222           00000000094222Registro tipo 75 sem registro correspondente em pelo menos um dos tipos: 54,57,60D,60I,60R,74,77,86 Rejeição   
+0000000039         050                                   57095                         Existe intervalo na sequência de numeração de notas fiscais emitidas pelo contribuinte.             Advertência

@@ -1,0 +1,31 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.ocx]
+@="ft000001"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.dll]
+@="ft000001"
+"Content Type"="application/x-msdownload"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.dll\PersistentHandler]
+@="{098f2470-bae0-11cd-b579-08002b30bfeb}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.ocx\PersistentHandler]
+@="{098f2470-bae0-11cd-b579-08002b30bfeb}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ft000001]
+@="Componente ActiveX"
+"BrowserFlags"="8"
+"EditFlags"="0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ft000001\DefaultIcon]
+@="shell32.dll,72"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ft000001\shell]
+@="Registrar"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ft000001\shell\Registrar\command]
+@="\"c:\\WINDOWS\\system32\\regsvr32.exe\" \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ft000001\shell\Remover Registro\command]
+@="\"c:\\WINDOWS\\system32\\regsvr32.exe\" \"%1\" -u"

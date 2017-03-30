@@ -1,0 +1,280 @@
+// NETStreams.idl : IDL source for NETStreams.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (NETStreams.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(84CB4834-09AC-435D-A409-B7FAC8C3BBEE),
+		dual,
+		helpstring("INWSocketStream Interface"),
+		pointer_default(unique)
+	]
+	interface INWSocketStream : IDispatch
+	{
+		[id(1), helpstring("method Connect")] HRESULT Connect([in] VARIANT vAddr,[out,retval] VARIANT_BOOL* bSuccess);
+		[propget, id(2), helpstring("property LastError")] HRESULT LastError([out, retval] BSTR *pVal);
+		[propget, id(3), helpstring("property Blocking")] HRESULT Blocking([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(3), helpstring("property Blocking")] HRESULT Blocking([in] VARIANT_BOOL newVal);
+		[propget, id(4), helpstring("property Address")] HRESULT Address([out, retval] IDispatch* *pVal);
+		[propget, id(5), helpstring("property InBufferSize")] HRESULT InBufferSize([out, retval] long *pVal);
+		[propget, id(6), helpstring("property OutBufferSize")] HRESULT OutBufferSize([out, retval] long *pVal);
+		[id(7), helpstring("method Select")] HRESULT Select([in,defaultvalue(0)] long lTimeout,[in,defaultvalue(-1)] VARIANT_BOOL bRead,[in,defaultvalue(-1)] VARIANT_BOOL bWrite,[in,defaultvalue(-1)] VARIANT_BOOL bErr,[out,retval] long* lResult);
+		[id(8), helpstring("method GetOption")] HRESULT GetOption([in] IUnknown* pOption,[out,retval] VARIANT_BOOL * pbSuccess);
+		[id(9), helpstring("method SetOption")] HRESULT SetOption([in] IUnknown* pOption,[out,retval] VARIANT_BOOL * pbSuccess);
+		[id(10), helpstring("method Socket")] HRESULT Socket([in,optional] VARIANT vAF,[in,optional] VARIANT vType,[in,optional] VARIANT vProto,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(11), helpstring("method Shutdown")] HRESULT Shutdown([in] long lHow,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(12), helpstring("method Close")] HRESULT Close([out,retval] VARIANT_BOOL* pbSuccess);
+		[propget, id(13), helpstring("property AddressFamily")] HRESULT AddressFamily([out, retval] long *pVal);
+		[propget, id(14), helpstring("property Type")] HRESULT Type([out, retval] long *pVal);
+		[propget, id(15), helpstring("property Protocol")] HRESULT Protocol([out, retval] long *pVal);
+		[propget, id(16), helpstring("property PeerAddress")] HRESULT PeerAddress([out, retval] IDispatch* *pVal);
+		[propget, id(17), helpstring("property SocketAddress")] HRESULT SocketAddress([out, retval] IDispatch* *pVal);
+		[id(18), helpstring("method Bind")] HRESULT Bind([in] VARIANT vAddr,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(19), helpstring("method Listen")] HRESULT Listen([in,defaultvalue(0)] long lBacklog,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(20), helpstring("method Accept")] HRESULT Accept([out,retval] IDispatch** ppCon);
+		[propget, id(21), helpstring("property TypeName")] HRESULT TypeName([out, retval] BSTR *pVal);
+		[propget, id(22), helpstring("property ProtocolName")] HRESULT ProtocolName([out, retval] BSTR *pVal);
+		[propget, id(23), helpstring("property Valid")] HRESULT Valid([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(24), helpstring("property InvalidObjectsOnError")] HRESULT InvalidObjectsOnError([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(24), helpstring("property InvalidObjectsOnError")] HRESULT InvalidObjectsOnError([in] VARIANT_BOOL newVal);
+		[propget, id(25), helpstring("property LastErrorCode")] HRESULT LastErrorCode([out, retval] long *pVal);
+		
+	};
+	[
+		object,
+		uuid(4F525635-06C9-48B4-8795-789F15AAB9DA),
+		dual,
+		helpstring("IServerTCPListener Interface"),
+		pointer_default(unique)
+	]
+	interface INWSocketListener : IDispatch
+	{
+		[id(1), helpstring("method BindTo")] HRESULT Bind([in] VARIANT vAddr,[in] long lPort,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(2), helpstring("method Listen")] HRESULT Listen([in,defaultvalue(0)] long lbacklog,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(3), helpstring("method Accept")] HRESULT Accept([out,retval] IDispatch** ppCon);
+		[id(4), helpstring("method Disconnect")] HRESULT Disconnect();
+		[propget, id(5), helpstring("property LastError")] HRESULT LastError([out, retval] BSTR *pVal);
+		[propget, id(6), helpstring("property Blocking")] HRESULT Blocking([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(6), helpstring("property Blocking")] HRESULT Blocking([in] VARIANT_BOOL newVal);
+		[id(7), helpstring("method Select")] HRESULT Select([in,defaultvalue(0)] long lTimeout,[in,defaultvalue(-1)] VARIANT_BOOL bRead,[in,defaultvalue(-1)] VARIANT_BOOL bWrite,[in,defaultvalue(-1)] VARIANT_BOOL bErr,[out,retval] long* lResult);
+	};
+	[
+		object,
+		uuid(35EC67B1-E704-498B-B11C-C6444C1AA43D),
+		dual,
+		helpstring("ISocketSelectHelper Interface"),
+		pointer_default(unique)
+	]
+	interface ISocketSelectHelper : IDispatch
+	{
+		[propget, id(1), helpstring("property Status")] HRESULT Status([out, retval] long *pVal);
+		[propput, id(1), helpstring("property Status")] HRESULT Status([in] long newVal);
+		[propget, id(2), helpstring("property ReadyRead")] HRESULT ReadyRead([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(3), helpstring("property ReadyWrite")] HRESULT ReadyWrite([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(4), helpstring("property ReadyError")] HRESULT ReadyError([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(92F1E088-BA46-43F9-9FC7-CEAA0AA6DA33),
+		dual,
+		helpstring("ISockOpt Interface"),
+		pointer_default(unique)
+	]
+	interface ISockOpt : IDispatch
+	{
+		[propget, id(1), helpstring("property Type")] HRESULT Type([out, retval] VARIANT *pVal);
+		[propput, id(1), helpstring("property Type")] HRESULT Type([in] VARIANT newVal);
+		[propget, id(2), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+		[propput, id(2), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+		[propget, id(3), helpstring("property TypeCode")] HRESULT TypeCode([out, retval] long *pVal);
+		[propget, id(4), helpstring("property Level")] HRESULT Level([out, retval] VARIANT *pVal);
+		[propput, id(4), helpstring("property Level")] HRESULT Level([in] VARIANT newVal);
+		[propget, id(5), helpstring("property LevelCode")] HRESULT LevelCode([out, retval] long *pVal);
+		[propget, id(6), helpstring("property RequiredBufferSize")] HRESULT RequiredBufferSize([out, retval] long *pVal);
+		[id(7), helpstring("method PutBinValueData")] HRESULT PutBinValueData([in] VARIANT vBuff);
+		[id(8), helpstring("method GetBinValData")] HRESULT GetBinValData([out,retval] VARIANT* pVal);
+		[propget, id(9), helpstring("property Readable")] HRESULT Readable([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(10), helpstring("property Writable")] HRESULT Writable([out, retval] VARIANT_BOOL *pVal);
+		[propget, id(11), helpstring("property OptionalSize")] HRESULT OptionalSize([out, retval] long *pVal);
+		[propput, id(11), helpstring("property OptionalSize")] HRESULT OptionalSize([in] long newVal);
+	};
+	[
+		object,
+		uuid(A8B8C4EA-9356-4456-80FF-0B403BF6C121),
+		dual,
+		helpstring("INSMain Interface"),
+		pointer_default(unique)
+	]
+	interface INSMain : IDispatch
+	{
+		[id(1), helpstring("method GetHost")] HRESULT GetHost([in] VARIANT vAddr,[in,defaultvalue(2)] long lAF,[out,retval] IDispatch** ppAddr);
+		[id(2), helpstring("method NewAddress")] HRESULT NewAddress([out,retval] IDispatch** ppAddr);
+		[id(3), helpstring("method NewSocket")] HRESULT NewSocket([out,retval] IDispatch** ppSock);
+		[id(4), helpstring("method NewSelectHelper")] HRESULT NewSelectHelper([out,retval] IDispatch** ppSel);
+		[id(5), helpstring("method NewOption")] HRESULT NewOption([out,retval] IDispatch** ppOpt);
+	};
+	[
+		object,
+		uuid(0F1B74DA-FEA2-42D4-8530-E1F3EFBDC0F8),
+		dual,
+		helpstring("INSSocketAddress Interface"),
+		pointer_default(unique)
+	]
+	interface INSSocketAddress : IDispatch
+	{
+		[propget, id(1), helpstring("property AddressFamily")] HRESULT AddressFamily([out, retval] short *pVal);
+		[propput, id(1), helpstring("property AddressFamily")] HRESULT AddressFamily([in] short newVal);
+		[propget, id(2), helpstring("property BinAddress")] HRESULT BinAddress([out, retval] VARIANT *pVal);
+		[propput, id(2), helpstring("property BinAddress")] HRESULT BinAddress([in] VARIANT newVal);
+		[propget, id(3), helpstring("property TextAddress")] HRESULT TextAddress([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property TextAddress")] HRESULT TextAddress([in] BSTR newVal);
+		[propget, id(4), helpstring("property AddressPart")] HRESULT AddressPart(long lPart, [out, retval] long *pVal);
+		[propput, id(4), helpstring("property AddressPart")] HRESULT AddressPart(long lPart, [in] long newVal);
+		[propget, id(5), helpstring("property Port")] HRESULT Port([out, retval] long *pVal);
+		[propput, id(5), helpstring("property Port")] HRESULT Port([in] long newVal);
+		[propget, id(6), helpstring("property ServiceName")] HRESULT ServiceName([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property ServiceName")] HRESULT ServiceName([in] BSTR newVal);
+		[propget, id(7), helpstring("property FlowInfo")] HRESULT FlowInfo([out, retval] long *pVal);
+		[propput, id(7), helpstring("property FlowInfo")] HRESULT FlowInfo([in] long newVal);
+		[propget, id(8), helpstring("property AddressFamilyName")] HRESULT AddressFamilyName([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property AddressFamilyName")] HRESULT AddressFamilyName([in] BSTR newVal);
+		[propget, id(9), helpstring("property Valid")] HRESULT Valid([out, retval] VARIANT_BOOL *pVal);
+	};
+	[
+		object,
+		uuid(F6CF75BA-DB46-4A4D-BDB4-57E385946420),
+		dual,
+		helpstring("IIRDADeviceInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IIRDADeviceInfo : IDispatch
+	{
+		[propget, id(1), helpstring("property DeviceID")] HRESULT Address([in] long lDevice, [out, retval] IDispatch** ppAddr);
+		[propget, id(2), helpstring("property DeviceName")] HRESULT DeviceName([in] long lDevice, [out, retval] BSTR *pVal);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+	};
+
+[
+	uuid(AFAFC449-F16D-4B39-8203-77659054B36D),
+	version(1.0),
+	helpstring("NETStreams 1.0 Type Library")
+]
+library NETSTREAMSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	// Socket stream
+	[
+		uuid(D2F58BA8-F7B7-4A9D-B26B-882ECDE4842B),
+		helpstring("newObjects SocketStream Class")
+	]
+	coclass SocketStream
+	{
+		[default] interface INWSocketStream;
+	};
+	[
+		uuid(2BE49089-B6AF-49d0-85F5-BE13A247AB2B),
+		helpstring("newObjects SocketStream Class (freethreaded)")
+	]
+	coclass SocketStreamFree
+	{
+		[default] interface INWSocketStream;
+	};
+
+	// Socket Listener
+	[
+		uuid(DE3F9D95-A71D-463B-B863-69525B4B608E),
+		helpstring("newObjects SocketListener Class")
+	]
+	coclass SocketListener
+	{
+		[default] interface INWSocketListener;
+	};
+	[
+		uuid(5948BB88-DCF6-4b5f-9810-C3ECF106D6CD),
+		helpstring("newObjects SocketListener Class (freethreaded)")
+	]
+	coclass SocketListenerFree
+	{
+		[default] interface INWSocketListener;
+	};
+
+	// Socket select helper
+	[
+		uuid(B8C5E021-EDE4-4090-B98F-F38D34AFF4BE),
+		helpstring("newObjects SocketSelectHelper Class")
+	]
+	coclass SocketSelectHelper
+	{
+		[default] interface ISocketSelectHelper;
+	};
+	[
+		uuid(CF2EDE4E-F75F-410d-9B06-BD75AAAAD2AB),
+		helpstring("newObjects SocketSelectHelper Class (freethreaded)")
+	]
+	coclass SocketSelectHelperFree
+	{
+		[default] interface ISocketSelectHelper;
+	};
+
+	// Sock Opt
+	[
+		uuid(5B147DE0-95AD-4949-A6FC-DCC1724883BB),
+		helpstring("newObjects SockOpt Class")
+	]
+	coclass SockOpt
+	{
+		[default] interface ISockOpt;
+	};
+	[
+		uuid(5B8C5DA0-3893-4c87-8ED1-75F61EA4E4DE),
+		helpstring("newObjects SockOpt Class (freethreaded)")
+	]
+	coclass SockOptFree
+	{
+		[default] interface ISockOpt;
+	};
+
+	// NSMain
+	[
+		uuid(96B8A1DF-0F90-4A5D-8BE4-14639C99ADD2),
+		helpstring("newObjects NSMain Class")
+	]
+	coclass NSMain
+	{
+		[default] interface INSMain;
+	};
+	[
+		uuid(EF3DDADE-6331-4d48-9A42-BC6ADE23065F),
+		helpstring("newObjects NSMain Class (freethreaded)")
+	]
+	coclass NSMainFree
+	{
+		[default] interface INSMain;
+	};
+
+	// Socket address
+	[
+		uuid(5EFD8414-A47D-441C-8C38-8DF412AF13D6),
+		helpstring("newObjects NSSocketAddress Class")
+	]
+	coclass NSSocketAddress
+	{
+		[default] interface INSSocketAddress;
+	};
+
+	// Device info
+	[
+		uuid(89E1207A-6D8B-4999-8064-9188C3C603D7),
+		helpstring("newObjects IRDADeviceInfo Class")
+	]
+	coclass IRDADeviceInfo
+	{
+		[default] interface IIRDADeviceInfo;
+	};
+};

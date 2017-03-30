@@ -1,0 +1,108 @@
+// SQLITECOMUTF8.idl : IDL source for SQLITECOMUTF8.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SQLITECOMUTF8.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(33C7A0B6-AC8C-4817-909C-0312A3D15EF8),
+		dual,
+		helpstring("ISQLite3COMUTF8 Interface"),
+		pointer_default(unique)
+	]
+	interface ISQLite3COMUTF8 : IDispatch
+	{
+        
+        [propget, id(1), helpstring("property LastError")] HRESULT LastError([out, retval] BSTR *pVal);
+		[id(2), helpstring("method Open")] HRESULT Open([in] BSTR bstrDB, [in,defaultvalue(0)] long lMode,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(3), helpstring("method Close")] HRESULT Close();
+		[id(4), helpstring("method Execute")] HRESULT Execute([in] BSTR bstrSQL,[in,defaultvalue(1)] long lFirst,[in,defaultvalue(0)] long lCount,[in,defaultvalue(-1)] long lTypeInfo,[out,retval] IDispatch** ppObj);
+		[propget, id(5), helpstring("property IsOpened")] HRESULT IsOpened([out, retval] VARIANT_BOOL *pVal);
+		[id(6), helpstring("method Interrupt")] HRESULT Interrupt();
+		[propget, id(7), helpstring("property SQLiteVersion")] HRESULT SQLiteVersion([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property BusyTimeout")] HRESULT BusyTimeout([in] long newVal);
+		[propget, id(9), helpstring("property NoErrorMode")] HRESULT NoErrorMode([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(9), helpstring("property NoErrorMode")] HRESULT NoErrorMode([in] VARIANT_BOOL newVal);
+		[id(10), helpstring("method ParseNumeric")] HRESULT ParseNumeric([in] BSTR bstr,[out,retval] VARIANT* pVal);
+		[propget, id(11), helpstring("property AutoNumeric")] HRESULT AutoType([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(11), helpstring("property AutoNumeric")] HRESULT AutoType([in] VARIANT_BOOL newVal);
+		[id(12), helpstring("method AddNumericType")] HRESULT AddNumericType([in] BSTR bstr,[out,retval] long* plIndex);
+		[id(13), helpstring("method RemoveNumericType")] HRESULT RemoveNumericType([in] VARIANT v);
+		[propget, id(14), helpstring("property CountNumericTypes")] HRESULT CountNumericTypes([out, retval] long *pVal);
+		[id(15), helpstring("method RemoveAllNumericTypes")] HRESULT RemoveAllNumericTypes();
+		[propget, id(16), helpstring("property NumericType")] HRESULT NumericType([in] long l, [out, retval] BSTR *pVal);
+		[propget, id(17), helpstring("property TypeInfoLevel")] HRESULT TypeInfoLevel([out, retval] long *pVal);
+		[propput, id(17), helpstring("property TypeInfoLevel")] HRESULT TypeInfoLevel([in] long newVal);
+		[id(18), helpstring("method IsNumericType")] HRESULT IsNumericType([in] BSTR bstr,[out,retval] VARIANT_BOOL* pB);
+		[id(19), helpstring("method StripTypeName")] HRESULT StripTypeName([in] BSTR bstr,[out,retval] BSTR* pResult);
+        [id(20), helpstring("method VExecute"), vararg] HRESULT VExecute([in] BSTR bstrSQL,[in] long lFirst,[in] long lCount,[in] SAFEARRAY(VARIANT) vargs,[out,retval] IDispatch** ppResult);        
+        [id(21), helpstring("method AExecute")] HRESULT AExecute([in] BSTR bstrSQL,[in] VARIANT varray,[in,defaultvalue(1)] long lFirst,[in,defaultvalue(0)] long lCount,[out,retval] IDispatch** ppResult);        
+        [id(22), helpstring("method CExecute")] HRESULT CExecute([in] BSTR,[in] IUnknown* pColl, [in,defaultvalue(1)] long lFirst,[in,defaultvalue(0)] long lCount,[out,retval] IDispatch** ppObj);
+        [propget, id(23), helpstring("property CollectionsBaseIndex")] HRESULT CollectionsBaseIndex([out, retval] long *pVal);
+        [propput, id(23), helpstring("property CollectionsBaseIndex")] HRESULT CollectionsBaseIndex([in] long newVal);
+		[propget, id(24), helpstring("property Parameters")] HRESULT Parameters([out, retval] IDispatch* *pVal);
+        
+        
+	};
+	[
+		object,
+		uuid(C940399A-79ED-4870-8549-9073645C7C53),
+		dual,
+		helpstring("ISQLiteGlobalParams Interface"),
+		pointer_default(unique)
+	]
+	interface ISQLiteGlobalParams : IDispatch
+	{
+		[propget, id(1), helpstring("property ReferenceDate")] HRESULT ReferenceDate([out, retval] DATE *pVal);
+		[propput, id(1), helpstring("property ReferenceDate")] HRESULT ReferenceDate([in] DATE newVal);
+		[propget, id(2), helpstring("property UseReferenceDate")] HRESULT UseReferenceDate([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(2), helpstring("property UseReferenceDate")] HRESULT UseReferenceDate([in] VARIANT_BOOL newVal);
+		[propget, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT vIndex, [out, retval] VARIANT *pVal);
+		[propput, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT vIndex, [in] VARIANT newVal);
+        [propputref, id(DISPID_VALUE), helpstring("property Item")] HRESULT Item([in] VARIANT vIndex, [in] VARIANT newVal);
+		[propget, id(3), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+		[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+		[id(4), helpstring("method Add")] HRESULT Add([in] VARIANT varKey, [in] VARIANT varItem);
+		[id(5), helpstring("method Clear")] HRESULT Clear();
+		[id(6), helpstring("method Remove")] HRESULT Remove([in] VARIANT varIndex);
+		[propget, id(7), helpstring("property ParamExists")] HRESULT ParamExists([in] VARIANT vKey, [out, retval] VARIANT_BOOL *pVal);
+	};
+
+[
+	uuid(CCAA64E5-1E96-4c5d-BB3F-E1A75B6B4E4E),
+	version(1.0),
+	helpstring("SQLITECOMUTF8 1.0 Type Library")
+]
+library SQLITE3COMUTF8Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(A080B21E-00F3-43f2-984D-1B58AF325946),
+		helpstring("newObjects SQLite3COMUTF8 Class")
+	]
+	coclass SQLite3COMUTF8
+	{
+		[default] interface ISQLite3COMUTF8;
+	};
+	[
+		uuid(B357C242-5C35-4fac-A3A1-2C83118BE550),
+		helpstring("newObjects SQLite3 COM Class (freethreaded)")
+	]
+	coclass SQLite3COMUTF8Free
+	{
+		[default] interface ISQLite3COMUTF8;
+	};
+	[
+		uuid(0114FD8F-964F-4866-A129-3D8B5F43BAC5),
+		helpstring("newObjects SQLiteGlobalParams Class")
+	]
+	coclass SQLiteGlobalParams
+	{
+		[default] interface ISQLiteGlobalParams;
+	};
+};

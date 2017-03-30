@@ -1,0 +1,322 @@
+// HashCryptStreams.idl : IDL source for HashCryptStreams.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (HashCryptStreams.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	// AXPack1 interfaces
+	[
+		object,
+		uuid(2A37F86D-7903-4379-A12D-B45C27345400),
+		helpstring("ISFStreamBin Interface"),
+		pointer_default(unique)
+	]
+	interface ISFStreamBin : IUnknown
+	{
+		HRESULT	BinGetStreamPtr(/*[out,retval]*/ IUnknown** ppStrm);
+	};
+
+	// This package interfaces
+	[
+		object,
+		uuid(26C5737D-B547-4D40-A1FF-4038F6F92715),
+		dual,
+		helpstring("ISFStreamDigest Interface"),
+		pointer_default(unique)
+	]
+	interface ISFStreamDigest : IDispatch
+	{
+		[propget, id(1), helpstring("property Stream")] HRESULT Stream([out, retval] IUnknown* *pVal);
+		[propputref, id(1), helpstring("property Stream")] HRESULT Stream([in] IUnknown* newVal);
+		[propget, id(3), helpstring("property ReadAlgorithm")] HRESULT ReadAlgorithm([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property ReadAlgorithm")] HRESULT ReadAlgorithm([in] BSTR newVal);
+		[propget, id(4), helpstring("property WriteAlgorithm")] HRESULT WriteAlgorithm([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property WriteAlgorithm")] HRESULT WriteAlgorithm([in] BSTR newVal);
+		[propget, id(5), helpstring("property WriteKey")] HRESULT WriteKey([out, retval] VARIANT *pVal);
+		[propput, id(5), helpstring("property WriteKey")] HRESULT WriteKey([in] VARIANT newVal);
+		[propget, id(6), helpstring("property ReadKey")] HRESULT ReadKey([out, retval] VARIANT *pVal);
+		[propput, id(6), helpstring("property ReadKey")] HRESULT ReadKey([in] VARIANT newVal);
+		[propget, id(7), helpstring("property ReadValue")] HRESULT ReadValue([out, retval] BSTR *pVal);
+		[propget, id(8), helpstring("property WriteValue")] HRESULT WriteValue([out, retval] BSTR *pVal);
+		[id(9), helpstring("method ReadReset")] HRESULT ReadReset();
+		[id(10), helpstring("method WriteReset")] HRESULT WriteReset();
+		[propget, id(11), helpstring("property WriteHashEnable")] HRESULT WriteHashEnable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(11), helpstring("property WriteHashEnable")] HRESULT WriteHashEnable([in] VARIANT_BOOL newVal);
+		[propget, id(12), helpstring("property ReadHashEnable")] HRESULT ReadHashEnable([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(12), helpstring("property ReadHashEnable")] HRESULT ReadHashEnable([in] VARIANT_BOOL newVal);
+		[id(13), helpstring("method WriteResetKey")] HRESULT WriteResetKey();
+		[id(14), helpstring("method ReadResetKey")] HRESULT ReadResetKey();
+		[propget, id(15), helpstring("property SeekingForbidden")] HRESULT SeekingForbidden([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(15), helpstring("property SeekingForbidden")] HRESULT SeekingForbidden([in] VARIANT_BOOL newVal);
+		[propget, id(16), helpstring("property codePage")] HRESULT codePage([out, retval] long *pVal);
+		[propput, id(16), helpstring("property codePage")] HRESULT codePage([in] long newVal);
+		[id(17), helpstring("method WriteFinalize")] HRESULT WriteFinalize();
+		[id(18), helpstring("method ReadFinalize")] HRESULT ReadFinalize();
+		[propget, id(19), helpstring("property ReadBinaryValue")] HRESULT ReadBinaryValue([out, retval] VARIANT *pVal);
+		[propget, id(20), helpstring("property WriteBinaryValue")] HRESULT WriteBinaryValue([out, retval] VARIANT *pVal);
+	};
+	[
+		object,
+		uuid(6629FCDA-E0E2-4643-9BD5-DFB54DF0A85C),
+		dual,
+		helpstring("IHashObject Interface"),
+		pointer_default(unique)
+	]
+	interface IHashObject : IDispatch
+	{
+		[propget, id(0), helpstring("property Value")] HRESULT Value([out, retval] BSTR *pVal);
+		[propget, id(1), helpstring("property HashSize")] HRESULT HashSize([out, retval] long *pVal);
+		[propget, id(2), helpstring("property BlockSize")] HRESULT BlockSize([out, retval] long *pVal);
+		[id(3), helpstring("method InitHash")] HRESULT InitHash([in] BSTR bstrAlg);
+		[id(4), helpstring("method HashData")] HRESULT HashData([in] VARIANT vData,[in,defaultvalue(-1)] long lCP);
+		[propget, id(5), helpstring("property BinaryValue")] HRESULT BinaryValue([out, retval] VARIANT *pVal);
+		[id(6), helpstring("method HashUpdate")] HRESULT HashUpdate([in] VARIANT vData,[in,defaultvalue(-1)] long lCP);
+		[id(7), helpstring("method HashFinalize")] HRESULT HashFinalize();
+		[propget, id(8), helpstring("property codePage")] HRESULT codePage([out, retval] long *pVal);
+		[propput, id(8), helpstring("property codePage")] HRESULT codePage([in] long newVal);
+		[propget, id(9), helpstring("property Key")] HRESULT Key([out, retval] VARIANT *pVal);
+		[propput, id(9), helpstring("property Key")] HRESULT Key([in] VARIANT newVal);
+		[id(10), helpstring("method Reset")] HRESULT Reset();
+		[id(11), helpstring("method ResetKey")] HRESULT ResetKey();
+	};
+	[
+		object,
+		uuid(7250EF37-B9EE-4FB8-A386-BF566162CFF5),
+		dual,
+		helpstring("ISymmetricCryptObject Interface"),
+		pointer_default(unique)
+	]
+	interface ISymmetricCryptObject : IDispatch
+	{
+		[propget, id(1), helpstring("property Key")] HRESULT Key([out, retval] VARIANT *pVal);
+		[propput, id(1), helpstring("property Key")] HRESULT Key([in] VARIANT newVal);
+		[propget, id(2), helpstring("property BlockSize")] HRESULT BlockSize([out, retval] long *pVal);
+		[propget, id(3), helpstring("property codePage")] HRESULT codePage([out, retval] long *pVal);
+		[propput, id(3), helpstring("property codePage")] HRESULT codePage([in] long newVal);
+		[id(4), helpstring("method Encrypt")] HRESULT Encrypt([in] VARIANT vData,[in,defaultvalue(-1)] VARIANT_BOOL bFinalize,[out,retval] VARIANT* pvResult);
+		[id(5), helpstring("method Decrypt")] HRESULT Decrypt([in] VARIANT vData,[in,defaultvalue(-1)] VARIANT_BOOL bFinalize,[out,retval] VARIANT* pvResult);
+		[id(6), helpstring("method Reset")] HRESULT Reset([in,defaultvalue(0)] long lWhat);
+		[id(7), helpstring("method ResetKey")] HRESULT ResetKey();
+		[id(8), helpstring("method Init")] HRESULT Init([in] VARIANT vAlg);
+		[propget, id(9), helpstring("property PadType")] HRESULT PadType([out, retval] long *pVal);
+		[propput, id(9), helpstring("property PadType")] HRESULT PadType([in] long newVal);
+	};
+	[
+		object,
+		uuid(EDB6DB11-AA51-4BE5-82D9-7A563B5F9407),
+		dual,
+		helpstring("IRSACrypt Interface"),
+		pointer_default(unique)
+	]
+	interface IRSACrypt : IDispatch
+	{
+		[id(1), helpstring("method CreateKeys")] HRESULT CreateKeys([in] VARIANT v1,[in] VARIANT v2);
+		[id(2), helpstring("method CreateRandKeys")] HRESULT CreateRandKeys([in,defaultvalue(32)] long lByteSize,[in,defaultvalue(0)] VARIANT_BOOL bExactSize);
+		[propget, id(3), helpstring("property Modulus")] HRESULT Modulus([out, retval] VARIANT *pVal);
+		[propput, id(3), helpstring("property Modulus")] HRESULT Modulus([in] VARIANT newVal);
+		[propget, id(4), helpstring("property PublicExp")] HRESULT PublicExp([out, retval] VARIANT *pVal);
+		[propput, id(4), helpstring("property PublicExp")] HRESULT PublicExp([in] VARIANT newVal);
+		[propget, id(5), helpstring("property SecretExp")] HRESULT SecretExp([out, retval] VARIANT *pVal);
+		[propput, id(5), helpstring("property SecretExp")] HRESULT SecretExp([in] VARIANT newVal);
+		[propget, id(6), helpstring("property P")] HRESULT P([out, retval] VARIANT *pVal);
+		[propput, id(6), helpstring("property P")] HRESULT P([in] VARIANT newVal);
+		[propget, id(7), helpstring("property Q")] HRESULT Q([out, retval] VARIANT *pVal);
+		[propput, id(7), helpstring("property Q")] HRESULT Q([in] VARIANT newVal);
+		[id(8), helpstring("method Encrypt")] HRESULT Encrypt([in] VARIANT vData,[out,retval] VARIANT* pvOut);
+		[id(9), helpstring("method Decrypt")] HRESULT Decrypt([in] VARIANT vData,[out,retval] VARIANT* pvOut);
+		[id(10), helpstring("method DecryptPQ")] HRESULT DecryptPQ([in] VARIANT vData,[out,retval] VARIANT* pvOut);
+		[id(11), helpstring("method Reset")] HRESULT Reset();
+		[propget, id(12), helpstring("property BlockSize")] HRESULT BlockSize([out, retval] long *pVal);
+	};
+	[
+		object,
+		uuid(EF8C3A84-2D32-4B11-801F-E68450381F0E),
+		dual,
+		helpstring("INWBigNumber Interface"),
+		pointer_default(unique)
+	]
+	interface INWBigNumber : IDispatch
+	{
+		[propget, id(DISPID_VALUE), helpstring("property Value")] HRESULT Value([out, retval] VARIANT *pVal);
+		[propput, id(DISPID_VALUE), helpstring("property Value")] HRESULT Value([in] VARIANT newVal);
+		[propget, id(2), helpstring("property Hex")] HRESULT Hex([out, retval] VARIANT *pVal);
+		[propput, id(2), helpstring("property Hex")] HRESULT Hex([in] VARIANT newVal);
+		[propget, id(3), helpstring("property Text")] HRESULT Text([in,defaultvalue(0)] long lCP, [out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Text")] HRESULT Text([in,defaultvalue(0)] long lCP, [in] BSTR newVal);
+		[propget, id(4), helpstring("property Binary")] HRESULT Binary([out, retval] VARIANT *pVal);
+		[propput, id(4), helpstring("property Binary")] HRESULT Binary([in] VARIANT newVal);
+		[id(5), helpstring("method Add")] HRESULT Add([in] VARIANT v,[out,retval] INWBigNumber** ppObj);
+		[id(6), helpstring("method Sub")] HRESULT Sub([in] VARIANT v,[out,retval] INWBigNumber** ppObj);
+		[id(7), helpstring("method Mul")] HRESULT Mul([in] VARIANT v,[out,retval] INWBigNumber** ppObj);
+		[id(8), helpstring("method Div")] HRESULT Div([in] VARIANT v,[out,retval] INWBigNumber** ppObj);
+		[id(9), helpstring("method Mod")] HRESULT Mod([in] VARIANT v,[out,retval] INWBigNumber** ppObj);
+		[id(10), helpstring("method Inc")] HRESULT Inc([in,optional] VARIANT v);
+		[id(11), helpstring("method Dec")] HRESULT Dec([in,optional] VARIANT v);
+		[id(12), helpstring("method Cmp")] HRESULT Cmp([in] VARIANT v,[out,retval] long* plResult);
+		[id(13), helpstring("method NewNumber")] HRESULT NewNumber([in,optional] VARIANT v,[out,retval] INWBigNumber** ppObj);
+		[id(14), helpstring("method Random")] HRESULT Random([in] long lSize,[in,defaultvalue(0)] VARIANT_BOOL bEnsureSize,[in,defaultvalue(0)] VARIANT_BOOL bOdd);
+		[id(15), helpstring("method GCD")] HRESULT GCD([in] VARIANT v,[out,retval] INWBigNumber** ppObj);
+		[id(16), helpstring("method ModExp")] HRESULT ModExp([in] VARIANT ve,[in] VARIANT vm,[out,retval] INWBigNumber** ppObj);
+		[id(17), helpstring("method ModInv")] HRESULT ModInv([in] VARIANT vm,[out,retval] INWBigNumber** ppObj);
+	};
+	[
+		object,
+		uuid(0948D78C-D166-432C-AF1D-53F3D7AFC53B),
+		dual,
+		helpstring("ISFStreamCrypt Interface"),
+		pointer_default(unique)
+	]
+	interface ISFStreamCrypt : IDispatch
+	{
+		[propget, id(1), helpstring("property Stream")] HRESULT Stream([out, retval] IUnknown* *pVal);
+		[propputref, id(1), helpstring("property Stream")] HRESULT Stream([in] IUnknown* newVal);
+		[propget, id(2), helpstring("property ReadAlgorithm")] HRESULT ReadAlgorithm([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property ReadAlgorithm")] HRESULT ReadAlgorithm([in] BSTR newVal);
+		[propget, id(3), helpstring("property WriteAlgorithm")] HRESULT WriteAlgorithm([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property WriteAlgorithm")] HRESULT WriteAlgorithm([in] BSTR newVal);
+		[propget, id(4), helpstring("property ReadKey")] HRESULT ReadKey([out, retval] VARIANT *pVal);
+		[propput, id(4), helpstring("property ReadKey")] HRESULT ReadKey([in] VARIANT newVal);
+		[propget, id(5), helpstring("property WriteKey")] HRESULT WriteKey([out, retval] VARIANT *pVal);
+		[propput, id(5), helpstring("property WriteKey")] HRESULT WriteKey([in] VARIANT newVal);
+		[id(6), helpstring("method ReadReset")] HRESULT ReadReset();
+		[id(7), helpstring("method WriteReset")] HRESULT WriteReset();
+		[id(8), helpstring("method ReadResetKey")] HRESULT ReadResetKey();
+		[id(9), helpstring("method WriteResetKey")] HRESULT WriteResetKey();
+		[propget, id(10), helpstring("property SeekingForbidden")] HRESULT SeekingForbidden([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(10), helpstring("property SeekingForbidden")] HRESULT SeekingForbidden([in] VARIANT_BOOL newVal);
+		[propget, id(11), helpstring("property codePage")] HRESULT codePage([out, retval] long *pVal);
+		[propput, id(11), helpstring("property codePage")] HRESULT codePage([in] long newVal);
+		[id(12), helpstring("method ReadFinalize")] HRESULT ReadFinalize();
+		[id(13), helpstring("method WriteFinalize")] HRESULT WriteFinalize();
+		[propget, id(14), helpstring("property WriteDecrypt")] HRESULT WriteDecrypt([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(14), helpstring("property WriteDecrypt")] HRESULT WriteDecrypt([in] VARIANT_BOOL newVal);
+		[propget, id(15), helpstring("property ReadDecrypt")] HRESULT ReadDecrypt([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(15), helpstring("property ReadDecrypt")] HRESULT ReadDecrypt([in] VARIANT_BOOL newVal);
+		[propget, id(16), helpstring("property ReadPadType")] HRESULT ReadPadType([out, retval] long *pVal);
+		[propput, id(16), helpstring("property ReadPadType")] HRESULT ReadPadType([in] long newVal);
+		[propget, id(17), helpstring("property WritePadType")] HRESULT WritePadType([out, retval] long *pVal);
+		[propput, id(17), helpstring("property WritePadType")] HRESULT WritePadType([in] long newVal);
+	};
+	
+
+[
+	uuid(F20AF5FB-3BE5-4E0B-B00B-5066E38262A7),
+	version(1.0),
+	helpstring("HashCryptStreams 1.0 Type Library")
+]
+library HASHCRYPTSTREAMSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+  // Stream digest
+	[
+		uuid(61589F56-3682-4912-9AF9-34BA97551D53),
+		helpstring("newObjects SFStreamDigest Class")
+	]
+	coclass SFStreamDigest
+	{
+		[default] interface ISFStreamDigest;
+	};
+    [
+		uuid(ED35381F-49AA-49f1-AD4E-FCD2C8180236),
+		helpstring("newObjects SFStreamDigest Class (freethreaded)")
+	]
+	coclass SFStreamDigestFree
+	{
+		[default] interface ISFStreamDigest;
+	};
+
+  // Hash Object
+	[
+		uuid(9C2A07F4-FB73-442A-8932-4B2916D85576),
+		helpstring("newObjects HashObject Class")
+	]
+	coclass HashObject
+	{
+		[default] interface IHashObject;
+	};
+    [
+		uuid(6ED3C86E-091A-4449-891C-D99C99690A28),
+		helpstring("newObjects HashObject Class (freethreaded)")
+	]
+	coclass HashObjectFree
+	{
+		[default] interface IHashObject;
+	};
+
+  // Symmetric crypto object
+	[
+		uuid(10C0E590-78A0-426A-9C78-64DEA486B982),
+		helpstring("newObjects SymmetricCryptObject Class")
+	]
+	coclass SymmetricCryptObject
+	{
+		[default] interface ISymmetricCryptObject;
+	};
+    [
+		uuid(00F7D232-E452-406a-A8EF-5B4116E02C4E),
+		helpstring("newObjects SymmetricCryptObject Class (freethreaded)")
+	]
+	coclass SymmetricCryptObjectFree
+	{
+		[default] interface ISymmetricCryptObject;
+	};
+
+
+  // RSA Crypt
+	[
+		uuid(122FDAD7-B6E9-43C9-81EA-CBB11C368197),
+		helpstring("newObjects RSACrypt Class")
+	]
+	coclass RSACrypt
+	{
+		[default] interface IRSACrypt;
+	};
+    [
+		uuid(92126712-F256-45bf-B3A4-2BDECD1EB78B),
+		helpstring("newObjects RSACrypt Class (freethreaded)")
+	]
+	coclass RSACryptFree
+	{
+		[default] interface IRSACrypt;
+	};
+
+  // NWBigNumber
+	[
+		uuid(53A9F5FB-CBD1-4AF0-A72B-47B20E6AEAE7),
+		helpstring("newObjects BigNumber Class")
+	]
+	coclass NWBigNumber
+	{
+		[default] interface INWBigNumber;
+	};
+    [
+		uuid(9E06C3FA-62A2-409d-8F61-EFA64C96AE01),
+		helpstring("newObjects BigNumber Class (freethreaded)")
+	]
+	coclass NWBigNumberFree
+	{
+		[default] interface INWBigNumber;
+	};
+
+  // Symmetric stream crypt
+	[
+		uuid(09B9DCA5-403C-4CFA-933B-88EFD99A4495),
+		helpstring("newObjects SFStreamCrypt Class")
+	]
+	coclass SFStreamCrypt
+	{
+		[default] interface ISFStreamCrypt;
+	};
+    [
+		uuid(A2F1F6FB-4FEC-49c8-88D3-B6ADBFE5A396),
+		helpstring("newObjects SFStreamCrypt Class (freethreaded)")
+	]
+	coclass SFStreamCryptFree
+	{
+		[default] interface ISFStreamCrypt;
+	};
+};

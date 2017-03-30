@@ -1,0 +1,111 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Hello world</title>
+<style>
+        <!--
+            body         { font-family: Arial; font-size: 11pt }
+            td           { font-family: Arial; font-size: 11pt }
+            A:Href       { text-decoration: none; color: blue; font-family: Arial; font-size: 11pt; }
+            A:Visited    { text-decoration: none; color: blue; font-family: Arial; font-size: 11pt; }
+            A:Link       { text-decoration: none; color: blue; font-family: Arial; font-size: 11pt; }
+            A:Hover      { text-decoration: underline; color: red; font-family: Arial; font-size: 11pt; }
+        -->
+</style>
+</head>
+
+<body>
+
+<div align="center">
+  <center>
+  <table border="0" width="600" cellspacing="0" cellpadding="0" bgcolor="#FFCF9C">
+    <tr>
+      <td valign="top">
+        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="200" valign="top" align="left"><img border="0" src="newObjects-logo.gif" width="200" height="26"></td>
+            <td valign="middle" align="center"><b><font size="4">Welcome !</font></b></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img border="0" src="anibar.gif" width="600" height="1"></td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <table border="0" width="100%" cellpadding="2">
+          <tr>
+            <td width="200" valign="top" align="left"><a href="http://www.newobjects.com/product.asp?ID=63"><img border="0" src="bl_tri.gif" width="20" height="10">
+              newObjects ActiveX Pack1</a>
+              <p><a href="http://www.newobjects.com/"><img border="0" src="bl_tri.gif" width="20" height="10">
+              newObjects main site</a></p>
+              <p><img border="0" src="bl_tri.gif" width="20" height="10"> <a href="http://code.newobjects.com">code.newobjects.com</a></p>
+              <p>&nbsp;</p>
+              <p><img border="0" src="answer_empty.gif"><a href="/EXIT.HTTP">Stop
+              the WEB server<br>
+              </a>After clicking this link the WEB server will stop serving, you
+              will need to restart it manually!</td>
+            <td valign="top" align="left" bgcolor="#FFEAD2" width="400">
+              <h4>About this sample</h4>
+              <p>This sample implements a very simple WEB server. It uses the
+              NetStream library is written for Windows Scripting Host (there is
+              also version for newObjects Microhost).</p>
+              <p>It serves only the resources in the script's directory and only
+              a few file types. If you want you can change the source code and
+              add more functionality. The HTTP support is minimal just enough to
+              get it working. </p>
+              <p>The sample uses blocking sockets and serves the requests
+              sequentially. Therefore the resources should be small in order to
+              avoid long timeouts. Thus a WEB server implemented this way is
+              good only for local usage by no more than 3-4 clients.</p>
+              <p>How to implement something better? For that purpose you will
+              need to use sockets in non-blocking mode, check their state from
+              time to time and send little chunks of data through every
+              connection that must be served. It will be even better to start
+              some threads and serve more than one request at a time. Using both
+              ActiveX Pack1 and the NetStreams this can be done in various ways
+              and will not need too much code to be written.</p>
+              <p>See source code (right-click and choose Save As):</p>
+              <blockquote>
+                <p><a href="http-srv.vbs">VBScript</a><br>
+                JScript</p>
+              </blockquote>
+              <h4>How to run the sample?</h4>
+              <p><b><i>WSH:</i></b> Make sure you have Windows Script Host installed. Open a
+              command prompt window. Change the current directory to the
+              sample's directory and type:</p>
+              <p><b>cscript http-srv.vbs 0.0.0.0 10</b></p>
+              <p>You can type another port or specify particular interface on
+              your machine.</p>
+              <p><i><b>Microhost:</b></i> Open newObjects MicroHost (from Start Menu -&gt;
+              Programs -&gt; newObjects -&gt; newObjects ActiveX Pack1 or
+              alternatively open the run prompt and type <b>nwmicrohost.exe</b>).
+              Choose run from the menu and browse to the sample directory (MicroHost
+              version - not WSH version). Change to VBScript and open the <b>http-srv.vbs</b>.
+              Then you will be asked to specify the address and the port on
+              which the server will listen.
+              <p>After starting it open a browser and go to the address and port
+              specified (if 0.0.0.0 has been used choose any of your machine's
+              interfaces or just use localhost if you are browsing from the same
+              machine).</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" align="center" style="border-top: 1 solid #000080">Copyright 2004 newObjects
+        [ ]</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

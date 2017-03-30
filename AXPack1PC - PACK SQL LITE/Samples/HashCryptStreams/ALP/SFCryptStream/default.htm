@@ -1,0 +1,47 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+</head>
+
+<body>
+
+<h2>Symmetric encryption using SFStreamCrypt object (from the HashCryptStreams
+library).</h2>
+<p>These two examples do the same but in slightly different manner. The first
+sample is straightforward while the second aims at better efficiency and
+convenient usage. The both examples consist of a form in which you can select an
+algorithm and specify a key. The key must be specified as hex-decimal number
+with appropriate length for the selected algorithm (8,16 or 24 bytes for DES and
+16, 24 or 32 bytes for AES - of course the characters needed will be twice
+more). If you fail to specify a correct key error will occur. This is left so in
+order to keep the examples simple and illustrate only the base functionality not
+messing with too much side details.</p>
+<p>The SFStreamCrypt is actually a stream filter. It behaves as a low level
+stream (by exposing IStream COM interface), but it does not write/read to/from a
+buffer or a file. It is attached a real stream (by using Set o.Stream =
+the_real_stream) and performs encryption/decryption (as configured) while the
+application writes/reads through it. As it is a low level stream it needs to be
+driven through a SFStream object by the ASP pages. While this encapsulation is
+done automatically for regular files in this case it needs to be done explicitly
+thus a SFStream is created and attached to the SFStreamCrypt object. Thus we
+have in the end a chain of 3 objects:</p>
+<p>SFStream&lt;-&gt;SFStreamCrypt&lt;-&gt;Real_stream</p>
+<p><b><a href="symcrypt.asp">Sample 1</a></b>.&nbsp; Encrypt the data while
+writing and decrypt it while reading. Keep the original file size separately.
+The file symcrypt.asp does the encryption, the symdecrypt.asp does the
+decryption.</p>
+<p><b><a href="symcrypt2.asp">Sample 2.</a> </b>Encrypt the data while writing
+and decrypt it while writing to a temporary memory stream. Keep the original
+file size as part of the encrypted data. The file symcrypt2.asp does the
+encryption, the symdecrypt2.asp does the decryption.</p>
+<p>Open the mentioned files in a text editor to see the source code. Every line
+of code is described by detailed comments..</p>
+
+</body>
+
+</html>

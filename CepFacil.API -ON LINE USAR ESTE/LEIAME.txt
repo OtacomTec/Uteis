@@ -1,0 +1,27 @@
+------------------------------------------------------------------
+Guia de Implementação:
+------------------------------------------------------------------
+
+1º - Adicionar referência da DLL CepFacil.API.dll ao seu projeto.
+
+2º - Adicionar a referência do namespace CepFacil.API
+
+------------------------------------------------------------------
+Modelo de Implementação:
+------------------------------------------------------------------
+
+C#
+
+  using CepFacil.API;
+
+
+  public void BuscarCepAPI()
+  {            
+         Localidade localidade = CepFacilBusca.BuscarLocalidade("13214080", "SEU CÓDIGO DE FILIAÇÃO"); 
+  }
+
+
+14C40643-1D5F-4CAB-80C5-2AA880D2BA5C
+
+
+http://www.cepfacil.com.br/service/?filiacao=14C40643-1D5F-4CAB-80C5-2AA880D2BA5C&cep=13214080&formato=xml

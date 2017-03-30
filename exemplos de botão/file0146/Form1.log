@@ -1,0 +1,16 @@
+Line 12: Class Project1.Command of control Command2 was not a loaded control class.
+Line 31: Class Project1.Command of control Command1 was not a loaded control class.
+Line 50: Class Project1.Command of control CmdDisabled was not a loaded control class.
+Line 70: Class Project1.Command of control CmdButton1 was not a loaded control class.
+Line 18: The property name _ExtentX in Command2 is invalid.
+Line 19: The property name _ExtentY in Command2 is invalid.
+Line 20: The property name Caption in Command2 is invalid.
+Line 37: The property name _ExtentX in Command1 is invalid.
+Line 38: The property name _ExtentY in Command1 is invalid.
+Line 39: The property name Caption in Command1 is invalid.
+Line 56: The property name _ExtentX in CmdDisabled is invalid.
+Line 57: The property name _ExtentY in CmdDisabled is invalid.
+Line 59: The property name Caption in CmdDisabled is invalid.
+Line 76: The property name _ExtentX in CmdButton1 is invalid.
+Line 77: The property name _ExtentY in CmdButton1 is invalid.
+Line 78: The property name Caption in CmdButton1 is invalid.

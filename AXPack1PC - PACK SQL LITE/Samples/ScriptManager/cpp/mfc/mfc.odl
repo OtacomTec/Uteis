@@ -1,0 +1,49 @@
+// mfc.odl : type library source for mfc.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (mfc.tlb).
+
+[ uuid(C16FF203-E3C7-11D4-9984-0040332BA2EA), version(1.0) ]
+library Mfc
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CMfcDoc
+	
+	[ uuid(C16FF204-E3C7-11D4-9984-0040332BA2EA) ]
+	dispinterface IMfc
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMfcDoc)
+			[id(1)] OLE_COLOR color;
+			[id(2)] OLE_COLOR bgColor;
+			[id(3)] long lineWidth;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMfcDoc)
+			[id(4)] void Line(long xBegin, long yBegin, long xEnd, long yEnd);
+			[id(5)] void Rect(long left, long top, long right, long bottom);
+			[id(6)] void Ellipse(long left, long top, long right, long bottom);
+			[id(7)] void Write(long x, long y, BSTR text);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CMfcDoc
+	
+	[ uuid(C16FF202-E3C7-11D4-9984-0040332BA2EA) ]
+	coclass Document
+	{
+		[default] dispinterface IMfc;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

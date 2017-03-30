@@ -1,0 +1,68 @@
+// SQLITECOM.idl : IDL source for SQLITECOM.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SQLITECOM.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(FEEFF89E-BF3F-43d1-A06B-357E558426D0),
+		dual,
+		helpstring("ISQLiteSCOMUTF8 Interface"),
+		pointer_default(unique)
+	]
+	interface ISQLiteSCOMUTF8 : IDispatch
+	{
+		[propget, id(1), helpstring("property LastError")] HRESULT LastError([out, retval] BSTR *pVal);
+		[id(2), helpstring("method Open")] HRESULT Open([in] BSTR bstrDB, [in,defaultvalue(0)] long lMode,[out,retval] VARIANT_BOOL* pbSuccess);
+		[id(3), helpstring("method Close")] HRESULT Close();
+		[id(4), helpstring("method Execute")] HRESULT Execute([in] BSTR bstrSQL,[in,defaultvalue(1)] long lFirst,[in,defaultvalue(0)] long lCount,[in,defaultvalue(-1)] long lTypeInfo,[out,retval] IDispatch** ppObj);
+		[propget, id(5), helpstring("property IsOpened")] HRESULT IsOpened([out, retval] VARIANT_BOOL *pVal);
+		[id(6), helpstring("method Interrupt")] HRESULT Interrupt();
+		[propget, id(7), helpstring("property SQLiteVersion")] HRESULT SQLiteVersion([out, retval] BSTR *pVal);
+		[propput, id(8), helpstring("property BusyTimeout")] HRESULT BusyTimeout([in] long newVal);
+		[propget, id(9), helpstring("property NoErrorMode")] HRESULT NoErrorMode([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(9), helpstring("property NoErrorMode")] HRESULT NoErrorMode([in] VARIANT_BOOL newVal);
+		[id(10), helpstring("method ParseNumeric")] HRESULT ParseNumeric([in] BSTR bstr,[out,retval] VARIANT* pVal);
+		[propget, id(11), helpstring("property AutoNumeric")] HRESULT AutoType([out, retval] VARIANT_BOOL *pVal);
+		[propput, id(11), helpstring("property AutoNumeric")] HRESULT AutoType([in] VARIANT_BOOL newVal);
+		[id(12), helpstring("method AddNumericType")] HRESULT AddNumericType([in] BSTR bstr,[out,retval] long* plIndex);
+		[id(13), helpstring("method RemoveNumericType")] HRESULT RemoveNumericType([in] VARIANT v);
+		[propget, id(14), helpstring("property CountNumericTypes")] HRESULT CountNumericTypes([out, retval] long *pVal);
+		[id(15), helpstring("method RemoveAllNumericTypes")] HRESULT RemoveAllNumericTypes();
+		[propget, id(16), helpstring("property NumericType")] HRESULT NumericType([in] long l, [out, retval] BSTR *pVal);
+		[propget, id(17), helpstring("property TypeInfoLevel")] HRESULT TypeInfoLevel([out, retval] long *pVal);
+		[propput, id(17), helpstring("property TypeInfoLevel")] HRESULT TypeInfoLevel([in] long newVal);
+		[id(18), helpstring("method IsNumericType")] HRESULT IsNumericType([in] BSTR bstr,[out,retval] VARIANT_BOOL* pB);
+		[id(19), helpstring("method StripTypeName")] HRESULT StripTypeName([in] BSTR bstr,[out,retval] BSTR* pResult);
+	};
+	
+[
+	uuid(80B1F94E-777B-4a55-89F3-52A0FDEC89B1),
+	version(1.0),
+	helpstring("SQLITECOM 1.0 Type Library")
+]
+library SQLITECOMLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(27917F02-97BC-4e88-AB7F-173E5E885FAC),
+		helpstring("newObjects SQLite Simple COM Class")
+	]
+	coclass SQLiteSCOM
+	{
+		[default] interface ISQLiteSCOMUTF8;
+	};
+	[
+		uuid(4BB07A77-6360-4e84-BC91-3EBCC29A2535),
+		helpstring("newObjects SQLite COM Class (freethreaded)")
+	]
+	coclass SQLiteSCOMFree
+	{
+		[default] interface ISQLiteSCOMUTF8;
+	};
+};

@@ -1,0 +1,19 @@
+program AC_DELPHI;
+
+uses
+  Forms,
+  Frame1 in 'Frame1.pas' {Form1},
+  Frame2 in 'Frame2.pas' {Form2},
+  Frame3 in 'Frame3.pas' {Form3},
+  Frame4 in 'Frame4.pas' {Form10};
+
+{$R *.RES}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TForm10, Form10);
+  Application.Run;
+end.
